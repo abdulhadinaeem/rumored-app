@@ -1,43 +1,49 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
+import 'package:rumo_red_app/screens/creat_quiz/drinking_game/drinking_question_quiz.dart';
 
 class AutoParticipantsWithoutMinor extends StatelessWidget {
-  const AutoParticipantsWithoutMinor({
-    super.key,
-  });
+  AutoParticipantsWithoutMinor(
+      {super.key,
+      required this.isSpinWheel,
+      required this.isAutoParticipantsDrinking,
+      required this.isWithoutMinorDrinking});
+  bool isSpinWheel, isWithoutMinorDrinking, isAutoParticipantsDrinking;
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AutoParticipantsWithoutMinorController>(
-        init: AutoParticipantsWithoutMinorController(),
-        builder: (controller) {
-          return Scaffold(
-            body: Column(
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
-                ),
-                Image.asset("assets/images/no-minor-participants.png"),
-                CustomParicipantsContainer(
-                    image: "assets/images/frame.png", title: "You"),
-                const SizedBox(
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: CustomButton(
-                    title: "Start Quiz",
-                    onPressed: () {
-                      Get.to(
-                        QuizQuestionScreen(
-                          isSpining: false,
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          );
-        });
+      init: AutoParticipantsWithoutMinorController(
+          isSpining: isSpinWheel,
+          isWithoutMinorDrinking: isWithoutMinorDrinking,
+          isAutoParticipantsDrinking: isAutoParticipantsDrinking),
+      builder: (controller) {
+        return Scaffold(
+          backgroundColor: controller.color,
+          body: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
+              controller.image,
+              CustomParicipantsContainer(
+                image: "assets/images/frame.png",
+                title: "You",
+                isButtonRequired: true,
+                buttonTitle: "Start Quiz",
+                onPressed: () {
+                  Get.to(
+                    isWithoutMinorDrinking || isAutoParticipantsDrinking
+                        ? const DrinkingQuestionQuizScreen()
+                        : QuizQuestionScreen(
+                            isSpining: isSpinWheel,
+                          ),
+                  );
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

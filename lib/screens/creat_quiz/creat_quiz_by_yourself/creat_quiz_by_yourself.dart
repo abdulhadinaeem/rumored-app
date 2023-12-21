@@ -68,7 +68,7 @@ class CreatQuizByYourselfScreen extends StatelessWidget {
                   CustomButton(
                       title: "Continue",
                       onPressed: () {
-                        Get.to(const CreatQuizByYourselfPage2());
+                        controller.goToNextScreen();
                       })
                 ],
               ),

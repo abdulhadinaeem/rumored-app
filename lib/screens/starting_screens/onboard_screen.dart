@@ -1,5 +1,4 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
-import 'package:rumo_red_app/services/starting_screen_controllers/on_boarding_screen_controller.dart';
 
 class OnBoardScreen extends StatelessWidget {
   const OnBoardScreen({super.key});
@@ -31,7 +30,7 @@ class OnBoardScreen extends StatelessWidget {
                   CustomButton(
                     title: 'Continue',
                     onPressed: () {
-                      Get.to(
+                      Get.off(
                         LoginScreen(),
                       );
                     },

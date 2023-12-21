@@ -6,15 +6,16 @@ class HistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HistoryController>(
-        init: HistoryController(),
-        builder: (controller) {
-          return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              title: const Text("History"),
-            ),
-            body: ListView.builder(itemBuilder: (_, index) {
+      init: HistoryController(),
+      builder: (controller) {
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            title: const Text("History"),
+          ),
+          body: ListView.builder(
+            itemBuilder: (_, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Column(
@@ -23,9 +24,11 @@ class HistoryScreen extends StatelessWidget {
                   ],
                 ),
               );
-            }),
-          );
-        });
+            },
+          ),
+        );
+      },
+    );
   }
 
   Widget historyListtile(BuildContext context) {

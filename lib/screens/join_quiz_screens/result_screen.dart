@@ -1,7 +1,7 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class ResultScreen extends StatelessWidget {
-  ResultScreen({
+  const ResultScreen({
     super.key,
   });
 
@@ -25,7 +25,7 @@ class ResultScreen extends StatelessWidget {
                     color: AppColors.resultScreenbottonColor1,
                     text: "You",
                     percentage: "55%",
-                    url: ""),
+                    url: "assets/images/frame.png"),
                 const SizedBox(height: 15),
                 CustomProgressIndicator(
                     context: context,
@@ -33,7 +33,7 @@ class ResultScreen extends StatelessWidget {
                     color: AppColors.resultScreenbottonColor2,
                     text: "April John",
                     percentage: "40%",
-                    url: ""),
+                    url: "assets/images/p-3.png"),
                 const SizedBox(height: 15),
                 CustomProgressIndicator(
                     context: context,
@@ -41,7 +41,7 @@ class ResultScreen extends StatelessWidget {
                     color: AppColors.resultScreenbottonColor3,
                     text: "Veronica Park",
                     percentage: "3%",
-                    url: ""),
+                    url: "assets/images/p-1.png"),
                 const SizedBox(height: 15),
                 CustomProgressIndicator(
                     context: context,
@@ -49,15 +49,12 @@ class ResultScreen extends StatelessWidget {
                     color: AppColors.resultScreenbottonColor4,
                     text: "Johnathon Roy",
                     percentage: "2%",
-                    url: ""),
+                    url: "assets/images/p-2.png"),
                 const SizedBox(height: 15),
                 const SizedBox(
                   height: 15,
                 ),
                 Image.asset("assets/images/result.png"),
-                // const SizedBox(
-                //   height: 15,
-                // ),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
@@ -72,15 +69,23 @@ class ResultScreen extends StatelessWidget {
                       }),
                 ),
                 TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "Exit Quiz",
-                      style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.textFiledColor),
-                    ))
+                  onPressed: () {
+                    Get.to(
+                      ResultWinScreen(
+                        isDrinkingGame: false,
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    "Exit Quiz",
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.textFiledColor,
+                    ),
+                  ),
+                ),
               ],
             ),
           );
@@ -112,7 +117,8 @@ class CustomProgressIndicator extends StatelessWidget {
       children: [
         ListTile(
           leading: CircleAvatar(
-            backgroundImage: NetworkImage(url),
+            backgroundColor: AppColors.primaryColor,
+            backgroundImage: AssetImage(url),
             radius: 20,
           ),
           title: Text(

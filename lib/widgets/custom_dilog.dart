@@ -10,7 +10,7 @@ class CustomShowDialog {
     required String buttonTitle1,
     String? buttonTitle2,
     required dynamic Function()? onPressed1,
-    required dynamic Function()? onPressed2,
+    dynamic Function()? onPressed2,
   }) {
     showDialog(
         context: context,
@@ -77,7 +77,7 @@ class CustomShowDialog {
                                       height:
                                           MediaQuery.of(context).size.height *
                                               0.9,
-                                      child: WatchAdScreen(),
+                                      child: const WatchAdScreen(),
                                     ),
                                   );
                                 },

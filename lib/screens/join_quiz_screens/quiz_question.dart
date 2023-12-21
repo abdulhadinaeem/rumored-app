@@ -10,7 +10,7 @@ class QuizQuestionScreen extends StatelessWidget with GradinetScaffold {
       Scaffold(
         backgroundColor: Colors.transparent,
         body: GetBuilder<QuizQuestionController>(
-            init: QuizQuestionController(),
+            init: QuizQuestionController(isSpining: isSpining),
             builder: (controller) {
               return Column(
                 children: [
@@ -19,7 +19,7 @@ class QuizQuestionScreen extends StatelessWidget with GradinetScaffold {
                   ),
                   Center(
                     child: Text("Answer the question",
-                        style: Theme.of(context).textTheme.displayLarge),
+                        style: context.textTheme.displayLarge),
                   ),
                   const SizedBox(
                     height: 15,
@@ -53,20 +53,19 @@ class QuizQuestionScreen extends StatelessWidget with GradinetScaffold {
                   const SizedBox(
                     height: 15,
                   ),
-                  for (int i = 0; i < 4; i++) participantsContainer(context),
+                  for (int i = 0; i < 4; i++)
+                    participantsContainer(
+                        context, controller.name[i], controller.image[i]),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 15),
                     child: CustomButton(
-                        title: "Done",
-                        onPressed: () {
-                          Get.to(
-                            isSpining
-                                ? SpinWheelQuizStartScreen()
-                                : ResultScreen(),
-                          );
-                        }),
-                  )
+                      title: "Done",
+                      onPressed: () {
+                        controller.goToNextScreen();
+                      },
+                    ),
+                  ),
                 ],
               );
             }),
@@ -75,7 +74,7 @@ class QuizQuestionScreen extends StatelessWidget with GradinetScaffold {
   }
 }
 
-Widget participantsContainer(BuildContext context) {
+Widget participantsContainer(BuildContext context, String name, image) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
     child: Container(
@@ -87,7 +86,7 @@ Widget participantsContainer(BuildContext context) {
         shape: BoxShape.rectangle,
         color: AppColors.getReadyContainerColor,
       ),
-      child: customListtile("You", "assets/images/frame.png"),
+      child: customListtile(name, image),
     ),
   );
 }
@@ -99,7 +98,8 @@ Widget customListtile(String title, String url) {
     ),
     child: ListTile(
       leading: CircleAvatar(
-        backgroundImage: NetworkImage(url),
+        backgroundColor: AppColors.getReadyContainerColor,
+        backgroundImage: AssetImage(url),
         radius: 15,
       ),
       title: Text(

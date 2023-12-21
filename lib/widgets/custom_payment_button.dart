@@ -9,11 +9,13 @@ class CustomPaymentButton extends StatelessWidget {
       required this.isPaymentMethot,
       this.onTap,
       this.value,
-      this.image});
+      this.image,
+      this.isSelected = false});
   final String? price;
   final String? text2;
   final String? image;
   final bool isPaymentMethot;
+  bool isSelected = false;
   int? value;
   void Function()? onTap;
   @override
@@ -23,24 +25,27 @@ class CustomPaymentButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(bottom: 15),
         child: Container(
-            width: MediaQuery.of(context).size.width * 0.95,
-            height: MediaQuery.of(context).size.width * 0.1,
-            decoration: BoxDecoration(
-              border: Border.all(width: 1, color: const Color(0XFFCAC5C5)),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: isPaymentMethot
-                ? Center(
-                    child: SvgPicture.asset(image!),
-                  )
-                : Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: CustomRadioButton(
-                      value: value!,
-                      text: price!,
-                      text2: text2!,
-                    ),
-                  )),
+          width: MediaQuery.of(context).size.width * 0.95,
+          height: MediaQuery.of(context).size.width * 0.1,
+          decoration: BoxDecoration(
+            border: Border.all(
+                width: 1,
+                color: isSelected ? Colors.black : const Color(0XFFCAC5C5)),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: isPaymentMethot
+              ? Center(
+                  child: SvgPicture.asset(image!),
+                )
+              : Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: CustomRadioButton(
+                    value: value!,
+                    text: price!,
+                    text2: text2!,
+                  ),
+                ),
+        ),
       ),
     );
   }

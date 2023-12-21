@@ -1,8 +1,16 @@
 export 'package:flutter/material.dart';
+export 'dart:math';
 export 'package:rumo_red_app/services/profile_controller/history_controller.dart';
 export 'package:rumo_red_app/core/constants/app_colors.dart';
+export 'package:rumo_red_app/screens/profile/your_character_screen.dart';
+export 'package:rumo_red_app/services/profile_controller/your_character_screen_controller.dart';
+
+export 'package:rumo_red_app/services/starting_screen_controllers/on_boarding_screen_controller.dart';
 export 'package:rumo_red_app/screens/profile/analysis_screen.dart';
 export 'package:rumo_red_app/screens/join_quiz_screens/result_win_screen.dart';
+export 'package:rumo_red_app/screens/creat_quiz/auto_generated_quiz/with_minor/auto_participants_screen_with_minor.dart';
+export 'package:rumo_red_app/screens/creat_quiz/auto_generated_quiz/without_minor/auto_participants_without_minor.dart';
+
 export 'package:rumo_red_app/screens/spin_wheel_screen/spin_wheel_quiz_start.dart';
 export 'package:rumo_red_app/services/quiz_controllers/join_quiz_controllers/result_controller.dart';
 export 'package:rumo_red_app/services/quiz_controllers/join_quiz_controllers/get_ready_screen_controller.dart';
@@ -12,7 +20,10 @@ export 'package:rumo_red_app/services/quiz_controllers/creat_quiz_controller/aut
 export 'package:rumo_red_app/services/quiz_controllers/creat_quiz_controller/creat_quiz_yourself_controller/creat_quiz_by_yourself_controller.dart';
 export 'package:rumo_red_app/services/quiz_controllers/creat_quiz_controller/creat_quiz_yourself_controller/creat_quiz_yourself_2_controller.dart';
 export 'package:rumo_red_app/services/quiz_controllers/creat_quiz_controller/creat_quiz_yourself_controller/create_quiz_paricipants_controller.dart';
-
+export 'package:rumo_red_app/screens/spin_wheel_screen/spin_wheel_drinking_quiz.dart';
+export 'package:rumo_red_app/services/quiz_controllers/creat_quiz_controller/creat_quiz_yourself_controller/create_quiz_get_ready_controller.dart';
+export 'package:rumo_red_app/screens/creat_quiz/drinking_game/drinking_auto_participants.dart';
+export 'package:rumo_red_app/services/drinking_game_controller/drinking_auto_pin_controller.dart';
 export 'package:rumo_red_app/services/profile_controller/profile_controller.dart';
 export 'package:rumo_red_app/screens/login_signup/login_screen.dart';
 export 'package:rumo_red_app/services/login_singup_controllers/signup_controller.dart';
@@ -22,9 +33,20 @@ export 'package:rumo_red_app/screens/premium_editions/buy_subscription/payment_m
 export 'package:rumo_red_app/widgets/custom_payment_button.dart';
 export 'package:pin_code_fields/pin_code_fields.dart';
 export 'package:flutter/services.dart';
+export 'package:rumo_red_app/services/spin_wheel_controllers/spin_wheel_drinking_quiz_controller.dart';
+export 'package:rumo_red_app/services/spin_wheel_controllers/spin_wheel_quiz_start_controller.dart';
+export 'package:rumo_red_app/widgets/custom_spin_wheel.dart';
+export 'package:rumo_red_app/services/premium_edition_controllers/buy_subscription_controller/payment_screen_controller.dart';
+export 'package:rumo_red_app/services/premium_edition_controllers/watch_ad_controller/after_ad_controller.dart';
+export 'package:rumo_red_app/services/premium_edition_controllers/watch_ad_controller/watch_ad_controller.dart';
+export 'package:rumo_red_app/widgets/custom_analysis_indicator.dart';
+export 'package:rumo_red_app/services/login_singup_controllers/login_controller.dart';
+export 'package:rumo_red_app/widgets/custom_participants_list_container.dart';
+export 'package:rumo_red_app/screens/creat_quiz/drinking_game/drinking_auto_result_screen.dart';
+export 'package:rumo_red_app/services/drinking_game_controller/drinking_question_quiz_controller.dart';
 export 'package:rumo_red_app/screens/creat_quiz/drinking_game/drinking_auto_pin.dart';
 export 'package:rumo_red_app/services/quiz_controllers/join_quiz_controllers/result_win_screen_controller.dart';
-
+export 'package:rumo_red_app/services/drinking_game_controller/drinking_auto_result_controller.dart';
 export 'package:rumo_red_app/services/widget_controllers/bottom_nav_bar_controller.dart';
 export 'package:rumo_red_app/widgets/custom_button.dart';
 export 'package:rumo_red_app/screens/premium_editions/buy_subscription/buy_subscription_screen.dart';

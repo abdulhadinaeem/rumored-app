@@ -24,11 +24,15 @@ class CustomTextField extends StatelessWidget {
       cursorColor: AppColors.textFiledHintTextColor,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: TextStyle(color: AppColors.textFiledHintTextColor),
+        hintStyle: TextStyle(
+          color: AppColors.textFiledHintTextColor,
+        ),
         suffixIcon: suffixIcon,
         suffixIconColor: AppColors.textFiledIconColor,
         filled: true,
         fillColor: AppColors.textFiledColor,
+
+        // focusColor: AppColors.textFiledHintTextColor,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
         ),

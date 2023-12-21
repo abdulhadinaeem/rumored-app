@@ -2,6 +2,7 @@ import 'core/constants/imports.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
   SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.portraitUp,
@@ -21,17 +22,24 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: const TextTheme(
           displayLarge: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.w600,
-              color: AppColors.textFiledColor),
+            fontSize: 28,
+            fontWeight: FontWeight.w600,
+            color: AppColors.textFiledColor,
+          ),
           displayMedium: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w400,
-              color: AppColors.textFiledColor),
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+            color: AppColors.textFiledColor,
+          ),
+          displaySmall: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            color: Color(0XFF636161),
+          ),
         ),
         scaffoldBackgroundColor: AppColors.primaryColor,
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
       // home: QuestionCreatScreen(),
     );
   }

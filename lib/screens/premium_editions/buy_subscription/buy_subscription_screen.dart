@@ -1,5 +1,4 @@
 import 'package:rumo_red_app/core/constants/imports.dart ';
-import 'package:rumo_red_app/services/premium_edition_controllers/buy_subscription_controller/buy_subscription_controller.dart';
 
 class BuySubscriptionScreen extends StatelessWidget {
   const BuySubscriptionScreen({super.key});
@@ -14,7 +13,7 @@ class BuySubscriptionScreen extends StatelessWidget {
             child: Scaffold(
               backgroundColor: Colors.transparent,
               body: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(
                     Radius.circular(30),
@@ -88,32 +87,11 @@ class BuySubscriptionScreen extends StatelessWidget {
                         height: MediaQuery.of(context).size.height * 0.1,
                       ),
                       CustomButton(
-                          title: "Continue",
-                          onPressed: () {
-                            Get.to(
-                              showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: const EdgeInsets.all(30.0),
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.8,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.9,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
-                                      child: PaymentMethodScreen(),
-                                    ),
-                                  );
-                                },
-                              ).then(
-                                (value) => Get.back(),
-                              ),
-                            );
-                          })
+                        title: "Continue",
+                        onPressed: () {
+                          controller.onPressed(context);
+                        },
+                      ),
                     ],
                   ),
                 ),

@@ -1,5 +1,4 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
-import 'package:rumo_red_app/services/premium_edition_controllers/watch_ad_controller/watch_ad_controller.dart';
 
 class WatchAdScreen extends StatelessWidget {
   const WatchAdScreen({super.key});

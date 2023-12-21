@@ -2,15 +2,21 @@ import 'package:rumo_red_app/core/constants/imports.dart';
 
 class CreateQuizParicipantsScreen extends StatelessWidget {
   CreateQuizParicipantsScreen(
-      {super.key, required this.isSpinWheelParticipants});
+      {super.key,
+      required this.isSpinWheelParticipants,
+      required this.isDrinkingGame});
   bool isSpinWheelParticipants;
+  bool isDrinkingGame;
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder(
-        init: CreateQuizParicipantscontroller(),
+    return GetBuilder<CreateQuizParicipantscontroller>(
+        init: CreateQuizParicipantscontroller(
+            isSpinWheelParticipants: isSpinWheelParticipants,
+            isDrinkingGame: isDrinkingGame),
         builder: (controller) {
           return Scaffold(
+            backgroundColor: controller.color,
             body: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -19,29 +25,19 @@ class CreateQuizParicipantsScreen extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
                   Center(
-                    child: isSpinWheelParticipants
-                        ? Image.asset("assets/images/s.png")
-                        : Image.asset("assets/images/quiz_paricipants.png"),
+                    child: controller.image,
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-                  CustomParicipantsContainer(image: "", title: "You"),
-                  // SizedBox(
-                  //   height: MediaQuery.of(context).size.height * 0.02,
-                  // ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: CustomButton(
-                        title: "Next",
-                        onPressed: () {
-                          Get.to(
-                            QuestionCreatScreen(
-                              isSpinWheelParticipants: isSpinWheelParticipants,
-                            ),
-                          );
-                        }),
+                  CustomParicipantsContainer(
+                    image: "assets/images/p-1.png",
+                    title: "You",
+                    buttonTitle: "Next",
+                    isButtonRequired: true,
+                    onPressed: () {
+                      controller.goToNextScreen();
+                    },
                   ),
                 ],
               ),

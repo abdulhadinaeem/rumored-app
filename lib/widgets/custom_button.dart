@@ -1,14 +1,16 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton(
+  CustomButton(
       {super.key,
       required this.title,
       required this.onPressed,
       this.color,
       this.elevation,
-      this.textColor});
+      this.textColor,
+      this.icon = false});
   final String title;
+  bool? icon = false;
   final Function()? onPressed;
   final Color? color, textColor;
   final double? elevation;
@@ -30,12 +32,20 @@ class CustomButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       child: Center(
-        child: Text(
-          title,
-          style: TextStyle(
-            fontSize: 16,
-            color: textColor ?? AppColors.onBoardingTextColor,
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 16,
+                color: textColor ?? AppColors.onBoardingTextColor,
+              ),
+            ),
+            icon ?? false
+                ? SvgPicture.asset("assets/images/share1.svg")
+                : SizedBox(),
+          ],
         ),
       ),
     );

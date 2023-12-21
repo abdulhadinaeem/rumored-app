@@ -21,21 +21,22 @@ class EditionsScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: GridView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                      ),
-                      itemCount: controller.pickeditionData.length,
-                      itemBuilder: (context, index) {
-                        var data = controller.pickeditionData[index];
-                        return PickEditionsContainer(
-                          assetName: data.assetImage,
-                          text: data.text,
-                          index: index,
-                        );
-                      }),
-                )
+                    physics: const BouncingScrollPhysics(),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                    ),
+                    itemCount: controller.pickeditionData.length,
+                    itemBuilder: (context, index) {
+                      var data = controller.pickeditionData[index];
+                      return PickEditionsContainer(
+                        assetName: data.assetImage,
+                        text: data.text,
+                        index: index,
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           );

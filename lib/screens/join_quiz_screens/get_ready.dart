@@ -22,8 +22,10 @@ class GetReadyScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: CustomParicipantsContainer(
-                    title: "You",
-                    image: "assets/images/frame.png",
+                    title: controller.name[controller.index],
+                    image: controller.image[controller.index],
+                    buttonTitle: '',
+                    isButtonRequired: false,
                   ),
                 ),
               ],

@@ -1,8 +1,8 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class ProfileScreen extends StatelessWidget {
-  ProfileScreen({super.key});
-  double circularradius = 50;
+  const ProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ProfileController>(
@@ -38,11 +38,13 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     Container(
                       margin: const EdgeInsets.only(top: 100),
-                      child: Center(
+                      child: const Center(
                         child: CircleAvatar(
-                          backgroundImage:
-                              const AssetImage("assets/images/frame.png"),
-                          radius: circularradius,
+                          backgroundColor: AppColors.primaryColor,
+                          backgroundImage: AssetImage(
+                            "assets/images/frame.png",
+                          ),
+                          radius: 50,
                         ),
                       ),
                     ),
@@ -72,11 +74,12 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () {
-                        Get.to(() => const HistoryScreen());
+                        Get.to(
+                          () => const HistoryScreen(),
+                        );
                       },
-                      icon: SvgPicture.asset(
-                        "assets/images/history.svg",
-                        width: 100,
+                      icon: Image.asset(
+                        "assets/images/history1.png",
                       ),
                     ),
                     IconButton(
@@ -85,9 +88,8 @@ class ProfileScreen extends StatelessWidget {
                           () => const AnalysisScreen(),
                         );
                       },
-                      icon: SvgPicture.asset(
-                        "assets/images/analysis.svg",
-                        width: 100,
+                      icon: Image.asset(
+                        "assets/images/analysis1.png",
                       ),
                     ),
                   ],

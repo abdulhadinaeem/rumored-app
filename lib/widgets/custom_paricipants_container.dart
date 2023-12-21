@@ -2,45 +2,63 @@ import 'package:rumo_red_app/core/constants/imports.dart';
 
 class CustomParicipantsContainer extends StatelessWidget {
   CustomParicipantsContainer(
-      {super.key, required this.image, required this.title});
-  String title, image;
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.buttonTitle,
+      required this.isButtonRequired,
+      this.onPressed});
+  String title, image, buttonTitle;
+  dynamic Function()? onPressed;
+  bool isButtonRequired;
 
   @override
   Widget build(
     BuildContext context,
   ) {
-    return Expanded(
-      child: Stack(children: [
-        Container(
-          width: MediaQuery.of(context).size.width * 0.85,
-          height: MediaQuery.of(context).size.height * 0.35,
-          decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(
-                Radius.circular(30),
-              ),
-              color: AppColors.getReadyContainerColor),
-          child: ListView(
-            children: [
-              const SizedBox(
-                height: 8,
-              ),
-              const Center(
-                child: Text(
-                  "Participants",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.textFiledColor),
+    return Flexible(
+      child: Column(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width * 0.85,
+            height: MediaQuery.of(context).size.height * 0.35,
+            decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(30),
                 ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              for (int i = 0; i < 4; i++) participantsContainer(context),
-            ],
+                color: AppColors.getReadyContainerColor),
+            child: ListView(
+              children: [
+                const SizedBox(
+                  height: 8,
+                ),
+                const Center(
+                  child: Text(
+                    "Participants",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.textFiledColor),
+                  ),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                for (int i = 0; i < 4; i++) participantsContainer(context),
+              ],
+            ),
           ),
-        ),
-      ]),
+          const SizedBox(
+            height: 18,
+          ),
+          isButtonRequired
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: CustomButton(title: buttonTitle, onPressed: onPressed),
+                )
+              : const SizedBox(),
+        ],
+      ),
     );
   }
 
@@ -50,13 +68,12 @@ class CustomParicipantsContainer extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.07,
         decoration: BoxDecoration(
-          border: Border.all(
-              width: 1, color: AppColors.quizQuestionScreenbottonColor),
+          border: Border.all(width: 1, color: Colors.white),
           borderRadius: const BorderRadius.all(
             Radius.circular(30),
           ),
           shape: BoxShape.rectangle,
-          color: AppColors.getReadyContainerColor,
+          color: AppColors.textFiledColor,
         ),
         child: customListtile(title, image),
       ),
@@ -67,18 +84,17 @@ class CustomParicipantsContainer extends StatelessWidget {
     return Center(
       child: ListTile(
         leading: Padding(
-          padding: const EdgeInsets.only(top: 3, bottom: 3),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
           child: CircleAvatar(
-            backgroundImage: NetworkImage(url),
-            radius: 25,
+            backgroundColor: Colors.white,
+            backgroundImage: AssetImage(url),
+            radius: 17,
           ),
         ),
         title: Text(
           title,
           style: const TextStyle(
-              color: AppColors.textFiledColor,
-              fontSize: 14,
-              fontWeight: FontWeight.w400),
+              color: Colors.black, fontSize: 14, fontWeight: FontWeight.w400),
         ),
       ),
     );
