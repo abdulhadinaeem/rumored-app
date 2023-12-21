@@ -72,25 +72,47 @@ class ProfileScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                      onPressed: () {
-                        Get.to(
-                          () => const HistoryScreen(),
-                        );
-                      },
-                      icon: Image.asset(
-                        "assets/images/history1.png",
-                      ),
+                    Column(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Get.to(
+                              () => const HistoryScreen(),
+                            );
+                          },
+                          icon: Image.asset(
+                            "assets/images/history3.png",
+                          ),
+                        ),
+                        const Text(
+                          "History",
+                          style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black),
+                        ),
+                      ],
                     ),
-                    IconButton(
-                      onPressed: () {
-                        Get.to(
-                          () => const AnalysisScreen(),
-                        );
-                      },
-                      icon: Image.asset(
-                        "assets/images/analysis1.png",
-                      ),
+                    Column(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Get.to(
+                              () => const AnalysisScreen(),
+                            );
+                          },
+                          icon: Image.asset(
+                            "assets/images/analysis3.png",
+                          ),
+                        ),
+                        const Text(
+                          "Analysis",
+                          style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black),
+                        )
+                      ],
                     ),
                   ],
                 ),

@@ -17,57 +17,67 @@ class CustomAnalysisIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ListTile(
-          leading: Text(
-            title,
-            style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-                color: AppColors.textFiledColor),
-          ),
-          trailing: Column(
+        Container(
+          width: context.width * 0.9,
+          child: Column(
             children: [
-              Expanded(
-                child: Row(
+              ListTile(
+                leading: Text(
+                  title,
+                  style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.textFiledColor),
+                ),
+                trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    CircleAvatar(
-                      backgroundColor: AppColors.primaryColor,
-                      backgroundImage: AssetImage(image),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 30, left: 4),
-                      child: Text(
-                        name,
-                        style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.textFiledColor),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 6),
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: CircleAvatar(
+                          radius: 12,
+                          backgroundColor: AppColors.primaryColor,
+                          backgroundImage: AssetImage(image),
+                        ),
                       ),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          name,
+                          style: const TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.textFiledColor),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          percent,
+                          style: const TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.textFiledColor),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 15,
-              ),
-              Text(
-                percent,
-                style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.textFiledColor),
+              LinearPercentIndicator(
+                percent: percentage,
+                progressColor: progressColor,
+                backgroundColor: Colors.white,
+                lineHeight: 10,
+                width: context.width * 0.9,
+                barRadius: const Radius.circular(10),
               ),
             ],
           ),
-        ),
-        LinearPercentIndicator(
-          percent: percentage,
-          progressColor: progressColor,
-          backgroundColor: Colors.white,
-          lineHeight: 10,
-          width: MediaQuery.of(context).size.width * 0.9,
-          barRadius: const Radius.circular(10),
         ),
       ],
     );

@@ -4,7 +4,7 @@ class CreateQuizParicipantscontroller extends GetxController {
   CreateQuizParicipantscontroller(
       {required this.isSpinWheelParticipants, required this.isDrinkingGame});
 
-  late Image image;
+  late SvgPicture image;
   late Color color;
   bool isSpinWheelParticipants;
   bool isDrinkingGame;
@@ -22,8 +22,8 @@ class CreateQuizParicipantscontroller extends GetxController {
   ];
   void showImage() {
     image = isSpinWheelParticipants
-        ? Image.asset("assets/images/s.png")
-        : Image.asset("assets/images/quiz_paricipants.png");
+        ? SvgPicture.asset("assets/images/s11.svg")
+        : SvgPicture.asset("assets/images/quiz_par11.svg");
   }
 
   void backGroundColor() {

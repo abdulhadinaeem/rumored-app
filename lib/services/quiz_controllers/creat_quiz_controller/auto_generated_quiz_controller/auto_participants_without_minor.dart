@@ -18,7 +18,7 @@ class AutoParticipantsWithoutMinorController extends GetxController {
     "assets/images/p-3.png",
   ];
   bool isSpining, isWithoutMinorDrinking, isAutoParticipantsDrinking;
-  late Image image;
+  late SvgPicture image;
   late Color color;
   bachGroundColor() {
     color = isWithoutMinorDrinking || isAutoParticipantsDrinking
@@ -30,10 +30,10 @@ class AutoParticipantsWithoutMinorController extends GetxController {
 
   showImage() {
     image = isSpining || isAutoParticipantsDrinking
-        ? Image.asset("assets/images/s.png")
+        ? SvgPicture.asset("assets/images/s11.svg")
         : isWithoutMinorDrinking
-            ? Image.asset("assets/images/drink_participant.png")
-            : Image.asset("assets/images/no-minor-participants.png");
+            ? SvgPicture.asset("assets/images/drink_participant.svg")
+            : SvgPicture.asset("assets/images/no_minor.svg");
     update();
   }
 

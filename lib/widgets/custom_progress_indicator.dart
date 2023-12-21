@@ -28,19 +28,21 @@ class CustomProgressIndicator extends StatelessWidget {
             backgroundImage: AssetImage(url),
             radius: 20,
           ),
-          title: Text(
-            text,
-            style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: AppColors.textFiledColor),
-          ),
-          trailing: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              percentage,
-              style: const TextStyle(color: AppColors.textFiledColor),
-            ),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                text,
+                style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.textFiledColor),
+              ),
+              Text(
+                percentage,
+                style: const TextStyle(color: AppColors.textFiledColor),
+              ),
+            ],
           ),
         ),
         LinearPercentIndicator(
@@ -48,7 +50,7 @@ class CustomProgressIndicator extends StatelessWidget {
           barRadius: const Radius.circular(16),
           progressColor: color,
           lineHeight: 10,
-          width: MediaQuery.of(context).size.width * 0.9,
+          width: context.width * 0.95,
         ),
       ],
     );

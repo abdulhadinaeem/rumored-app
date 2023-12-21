@@ -14,17 +14,17 @@ class HistoryScreen extends StatelessWidget {
             elevation: 0,
             title: const Text("History"),
           ),
-          body: ListView.builder(
-            itemBuilder: (_, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: Column(
-                  children: [
-                    for (int i = 0; i <= 5; i++) historyListtile(context),
-                  ],
-                ),
-              );
-            },
+          body: ListView(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              Column(
+                children: [
+                  for (int i = 0; i <= 9; i++) historyListtile(context),
+                ],
+              ),
+            ],
           ),
         );
       },
@@ -33,9 +33,7 @@ class HistoryScreen extends StatelessWidget {
 
   Widget historyListtile(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        bottom: 10,
-      ),
+      padding: const EdgeInsets.only(bottom: 10, left: 20, right: 20),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.09,
         decoration: BoxDecoration(
@@ -44,7 +42,7 @@ class HistoryScreen extends StatelessWidget {
           border: Border.all(width: 1, color: AppColors.textFiledColor),
           borderRadius: const BorderRadius.all(
             Radius.circular(
-              50,
+              40,
             ),
           ),
         ),

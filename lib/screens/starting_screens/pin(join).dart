@@ -43,13 +43,13 @@ class PinJoinScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.07,
+                      height: context.height * 0.07,
                     ),
                     Center(
-                      child: Image.asset("assets/images/pin(join).png"),
+                      child: SvgPicture.asset("assets/images/pinjoin11.svg"),
                     ),
                     const SizedBox(
-                      height: 15,
+                      height: 20,
                     ),
                     Text(
                       controller.text,

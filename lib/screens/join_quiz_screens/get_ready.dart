@@ -14,7 +14,7 @@ class GetReadyScreen extends StatelessWidget {
             body: Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
+                  height: context.height * 0.1,
                 ),
                 screenHeading(context),
                 const SizedBox(
@@ -42,14 +42,16 @@ class GetReadyScreen extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                    text: "  Get Ready!\n\n",
-                    style: Theme.of(context).textTheme.displayLarge),
+                  text: "  Get Ready!\n\n",
+                  style: Theme.of(context).textTheme.displayLarge,
+                ),
                 const TextSpan(
                   text: "The Quiz Will Star Soon",
                   style: TextStyle(
-                      color: AppColors.textFiledColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400),
+                    color: AppColors.textFiledColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ],
             ),
@@ -57,16 +59,19 @@ class GetReadyScreen extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          Image.asset("assets/images/get-ready.png"),
+          SvgPicture.asset(
+            "assets/images/getReady.svg",
+          ),
           const SizedBox(
             height: 15,
           ),
           const Text(
             "20 more participants besides you in this game",
             style: TextStyle(
-                color: AppColors.textFiledColor,
-                fontSize: 14,
-                fontWeight: FontWeight.w400),
+              color: AppColors.textFiledColor,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+            ),
           ),
         ],
       ),

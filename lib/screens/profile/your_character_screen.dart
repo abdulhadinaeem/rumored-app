@@ -12,14 +12,16 @@ class YourCharacterScreen extends StatelessWidget {
         return Scaffold(
           body: Column(
             children: [
-              SizedBox(height: context.height * 0.1),
+              SizedBox(height: context.height * 0.07),
               Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.back();
+                    },
                     icon: const Icon(
                       Icons.arrow_back,
-                      size: 22,
+                      size: 25,
                       color: Colors.white,
                     ),
                   ),
@@ -29,7 +31,7 @@ class YourCharacterScreen extends StatelessWidget {
                   const Text(
                     "Your Character",
                     style: TextStyle(
-                      fontSize: 17,
+                      fontSize: 22,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
                     ),
@@ -107,36 +109,6 @@ class YourCharacterScreen extends StatelessWidget {
                             selectedColor: Colors.white,
                           ),
                         ),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.center,
-                        //   children: [
-                        //     for (int i = 0;
-                        //         i < controller.characterList.length;
-                        //         i++)
-                        //       Padding(
-                        //         padding: const EdgeInsets.all(4.0),
-                        //         child: Container(
-                        //           margin: const EdgeInsets.only(top: 10),
-                        //           height: 10,
-                        //           width: controller.currentIndex == i ? 60 : 35,
-                        //           decoration: BoxDecoration(
-                        //             borderRadius: const BorderRadius.all(
-                        //               Radius.circular(20),
-                        //             ),
-                        //             shape: BoxShape.rectangle,
-                        //             color: controller.currentIndex == i
-                        //                 ? Colors.white
-                        //                 : const Color.fromRGBO(
-                        //                     255,
-                        //                     255,
-                        //                     255,
-                        //                     0.36,
-                        //                   ),
-                        //           ),
-                        //         ),
-                        //       ),
-                        //   ],
-                        // ),
                       ],
                     );
                   },

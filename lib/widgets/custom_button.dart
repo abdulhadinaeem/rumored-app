@@ -16,36 +16,39 @@ class CustomButton extends StatelessWidget {
   final double? elevation;
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ButtonStyle(
-        elevation: MaterialStateProperty.resolveWith<double>(
-            (Set<MaterialState> state) => elevation ?? 0.0),
-        maximumSize: MaterialStateProperty.resolveWith(
-            (states) => const Size(500.0, 46.0)),
-        backgroundColor: MaterialStateProperty.resolveWith(
-            (Set<MaterialState> states) => color ?? AppColors.secondaryColor),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(9),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          elevation: MaterialStateProperty.resolveWith<double>(
+              (Set<MaterialState> state) => elevation ?? 0.0),
+          maximumSize: MaterialStateProperty.resolveWith(
+              (states) => const Size(500.0, 46.0)),
+          backgroundColor: MaterialStateProperty.resolveWith(
+              (Set<MaterialState> states) => color ?? AppColors.secondaryColor),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(9),
+            ),
           ),
         ),
-      ),
-      onPressed: onPressed,
-      child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 16,
-                color: textColor ?? AppColors.onBoardingTextColor,
+        onPressed: onPressed,
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: textColor ?? AppColors.onBoardingTextColor,
+                ),
               ),
-            ),
-            icon ?? false
-                ? SvgPicture.asset("assets/images/share1.svg")
-                : SizedBox(),
-          ],
+              icon ?? false
+                  ? SvgPicture.asset("assets/images/share1.svg")
+                  : SizedBox(),
+            ],
+          ),
         ),
       ),
     );

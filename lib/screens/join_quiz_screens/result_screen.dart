@@ -54,7 +54,7 @@ class ResultScreen extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              Image.asset("assets/images/result.png"),
+              SvgPicture.asset("assets/images/result11.svg"),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 15),

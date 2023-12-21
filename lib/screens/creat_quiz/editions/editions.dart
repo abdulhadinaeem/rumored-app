@@ -6,40 +6,44 @@ class EditionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<PickEditionController>(
-        init: PickEditionController(context),
-        builder: (controller) {
-          return Scaffold(
-            body: Column(
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
-                ),
-                Text("Pick any edition",
-                    style: Theme.of(context).textTheme.displayLarge),
-                const SizedBox(
-                  height: 15,
-                ),
-                Expanded(
-                  child: GridView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                    ),
-                    itemCount: controller.pickeditionData.length,
-                    itemBuilder: (context, index) {
-                      var data = controller.pickeditionData[index];
-                      return PickEditionsContainer(
-                        assetName: data.assetImage,
-                        text: data.text,
-                        index: index,
-                      );
-                    },
+      init: PickEditionController(context),
+      builder: (controller) {
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+          ),
+          body: Column(
+            children: [
+              SizedBox(
+                height: context.height * 0.01,
+              ),
+              Text("Pick any edition",
+                  style: Theme.of(context).textTheme.displayLarge),
+              const SizedBox(
+                height: 15,
+              ),
+              Flexible(
+                child: GridView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
                   ),
+                  itemCount: controller.pickeditionData.length,
+                  itemBuilder: (context, index) {
+                    var data = controller.pickeditionData[index];
+                    return PickEditionsContainer(
+                      assetName: data.assetImage,
+                      text: data.text,
+                      index: index,
+                    );
+                  },
                 ),
-              ],
-            ),
-          );
-        });
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

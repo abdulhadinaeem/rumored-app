@@ -16,7 +16,7 @@ class AutoParticipantsScreenWithMinor extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
-                Image.asset("assets/images/auto-generate.png"),
+                SvgPicture.asset("assets/images/auto_generated11.svg"),
                 CustomParicipantsContainer(
                   image: controller.imageList,
                   title: controller.nameList,

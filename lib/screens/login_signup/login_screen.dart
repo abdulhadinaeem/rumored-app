@@ -23,7 +23,9 @@ class LoginScreen extends StatelessWidget with Validator {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.10,
                       ),
-                      Image.asset("assets/images/splash-logo.png"),
+                      SvgPicture.asset(
+                        "assets/images/logo11.svg",
+                      ),
                       const SizedBox(
                         height: 15,
                       ),

@@ -38,7 +38,7 @@ class ResultWinScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.2,
               ),
-              Image.asset("assets/images/try-again.png"),
+              SvgPicture.asset("assets/images/win11.svg"),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.2,
               ),

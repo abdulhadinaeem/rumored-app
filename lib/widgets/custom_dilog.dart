@@ -166,8 +166,11 @@ class CustomSpinWheelDialog {
                           child: Card(
                             child: Column(
                               children: [
-                                Image.asset(
-                                  image1,
+                                Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: SvgPicture.asset(
+                                    image1,
+                                  ),
                                 ),
                                 Text(
                                   buttonTitle1,
@@ -190,8 +193,11 @@ class CustomSpinWheelDialog {
                           child: Card(
                             child: Column(
                               children: [
-                                Image.asset(
-                                  image2,
+                                Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: SvgPicture.asset(
+                                    image2,
+                                  ),
                                 ),
                                 Text(
                                   buttonTitle2,

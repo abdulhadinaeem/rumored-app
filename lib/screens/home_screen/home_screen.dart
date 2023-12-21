@@ -12,9 +12,9 @@ class HomeScreen extends StatelessWidget {
             body: Column(
               children: [
                 Center(
-                  child: Image.asset("assets/images/home-image-1.png"),
+                  child: SvgPicture.asset("assets/images/home11.svg"),
                 ),
-                Image.asset("assets/images/home-image-2.png"),
+                // Image.asset("assets/images/home-image-2.png"),
                 const SizedBox(
                   height: 15,
                 ),
@@ -24,13 +24,13 @@ class HomeScreen extends StatelessWidget {
                       const EditionsScreen(),
                     );
                   },
-                  child: Image.asset('assets/images/home-creat.png'),
+                  child: SvgPicture.asset('assets/images/create11.svg'),
                 ),
                 GestureDetector(
                   onTap: () {
                     controller.goTONextScreen();
                   },
-                  child: Image.asset('assets/images/home-join.png'),
+                  child: SvgPicture.asset('assets/images/join11.svg'),
                 ),
               ],
             ),

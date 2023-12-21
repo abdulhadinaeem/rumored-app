@@ -12,7 +12,7 @@ class AnalysisScreen extends StatelessWidget {
           body: Column(
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.08,
+                height: context.height * 0.08,
               ),
               Row(
                 children: [
@@ -36,7 +36,7 @@ class AnalysisScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.04,
+                height: context.height * 0.04,
               ),
               Padding(
                 padding: const EdgeInsets.only(
@@ -45,8 +45,8 @@ class AnalysisScreen extends StatelessWidget {
                   bottom: 12,
                 ),
                 child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.2,
+                  width: context.width * 0.9,
+                  height: context.height * 0.2,
                   decoration: BoxDecoration(
                     color: Colors.transparent.withOpacity(0.3),
                     borderRadius: const BorderRadius.all(
@@ -75,9 +75,9 @@ class AnalysisScreen extends StatelessWidget {
                         children: [
                           for (int i = 0; i <= 6; i++)
                             customContainer(
-                              controller.name[i],
-                              controller.image[i],
-                            ),
+                                controller.name[i], controller.image[i], () {
+                              Get.to(YourCharacterScreen());
+                            }),
                         ],
                       ),
                     ],
@@ -103,7 +103,7 @@ class AnalysisScreen extends StatelessWidget {
                 image: "assets/images/p-1.png",
                 percent: "90%",
                 percentage: 0.9,
-                progressColor: Colors.yellow,
+                progressColor: AppColors.secondaryColor,
               ),
               const SizedBox(
                 height: 10,
@@ -114,7 +114,7 @@ class AnalysisScreen extends StatelessWidget {
                 image: "assets/images/frame.png",
                 percent: "80%",
                 percentage: 0.8,
-                progressColor: Colors.yellow,
+                progressColor: AppColors.resultScreenbottonColor1,
               ),
               const SizedBox(
                 height: 10,
@@ -125,7 +125,7 @@ class AnalysisScreen extends StatelessWidget {
                 image: "assets/images/p-1.png",
                 percent: "100%",
                 percentage: 1,
-                progressColor: Colors.yellow,
+                progressColor: AppColors.resultScreenbottonColor4,
               ),
             ],
           ),
@@ -134,38 +134,41 @@ class AnalysisScreen extends StatelessWidget {
     );
   }
 
-  Widget customContainer(String title, image) {
+  Widget customContainer(String title, image, Function()? onTap) {
     return Padding(
       padding: const EdgeInsets.only(
         top: 20,
         bottom: 20,
       ),
-      child: Container(
-        margin: const EdgeInsets.only(top: 18, bottom: 14, left: 6, right: 6),
-        width: 60,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          color: Colors.white,
-        ),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.white,
-                backgroundImage: AssetImage(
-                  image,
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          margin: const EdgeInsets.only(top: 18, bottom: 18, left: 6, right: 6),
+          width: 60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6),
+            color: Colors.white,
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  backgroundImage: AssetImage(
+                    image,
+                  ),
                 ),
-              ),
-              Text(
-                title,
-                style: const TextStyle(
-                    fontSize: 7,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.profileScreenListTextColor),
-                textAlign: TextAlign.center,
-              ),
-            ],
+                Text(
+                  title,
+                  style: const TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.profileScreenListTextColor),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
         ),
       ),

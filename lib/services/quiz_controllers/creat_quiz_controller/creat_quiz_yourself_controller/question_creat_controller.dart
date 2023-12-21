@@ -11,7 +11,7 @@ class QuestionCreatController extends GetxController {
   bool isSpinWheelParticipants, isDrinkingGame;
   int curentStep = 1;
   late Color color;
-  late Image image;
+  late SvgPicture image;
   late final int totalStep;
   late List creatQuizList;
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
@@ -28,9 +28,9 @@ class QuestionCreatController extends GetxController {
   void showImage() {
     image = isSpinWheelParticipants
         ? isSpinDrinkingGame
-            ? Image.asset("assets/images/two-drinks.png")
-            : Image.asset("assets/images/textfieldimg.png")
-        : Image.asset("assets/images/question.png");
+            ? SvgPicture.asset("assets/images/twodrinks11.svg")
+            : SvgPicture.asset("assets/images/text11.svg")
+        : SvgPicture.asset("assets/images/ques11.svg");
   }
 
   void initializeQuiz() {

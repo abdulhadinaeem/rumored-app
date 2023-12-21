@@ -1,3 +1,6 @@
+import 'dart:ui';
+import 'dart:ui';
+
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class PickEditionsContainer extends StatelessWidget {
@@ -18,8 +21,8 @@ class PickEditionsContainer extends StatelessWidget {
             index == 1
                 ? CustomSpinWheelDialog.spinWheelDialog(
                     context,
-                    image1: "assets/images/minor-game.png",
-                    image2: "assets/images/drinking-game.png",
+                    image1: "assets/images/minor-game.svg",
+                    image2: "assets/images/drinking-game.svg",
                     title: "Select the game",
                     buttonTitle1: "Minors in\naudience",
                     buttonTitle2: "Drinking\nWheel",
@@ -210,19 +213,16 @@ class PickEditionsContainer extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.36,
-                  height: MediaQuery.of(context).size.height * 0.17,
+                  width: context.width * 0.36,
+                  height: context.height * 0.17,
                   decoration: BoxDecoration(
-                    color: AppColors.textFiledColor,
+                    color: index > 5
+                        ? Colors.grey.shade400
+                        : AppColors.textFiledColor,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(22),
                     ),
                     image: DecorationImage(
-                      colorFilter: index > 5
-                          ? ColorFilter.mode(
-                              Colors.black.withOpacity(0.5), BlendMode.dstATop)
-                          : ColorFilter.mode(Colors.white.withOpacity(0.99),
-                              BlendMode.dstATop),
                       image: AssetImage(assetName),
                     ),
                   ),
@@ -244,7 +244,7 @@ class PickEditionsContainer extends StatelessWidget {
                   alignment: Alignment.topRight,
                   child: index < 6
                       ? const SizedBox()
-                      : Image.asset("assets/images/upgrade-icon.png"),
+                      : SvgPicture.asset("assets/images/upgrade-icon.svg"),
                 ),
               ],
             ),
