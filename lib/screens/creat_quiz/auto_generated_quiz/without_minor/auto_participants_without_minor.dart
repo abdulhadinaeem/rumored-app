@@ -26,8 +26,8 @@ class AutoParticipantsWithoutMinor extends StatelessWidget {
               ),
               controller.image,
               CustomParicipantsContainer(
-                image: "assets/images/frame.png",
-                title: "You",
+                image: controller.imageList,
+                title: controller.nameList,
                 isButtonRequired: true,
                 buttonTitle: "Start Quiz",
                 onPressed: () {
@@ -35,6 +35,7 @@ class AutoParticipantsWithoutMinor extends StatelessWidget {
                     isWithoutMinorDrinking || isAutoParticipantsDrinking
                         ? const DrinkingQuestionQuizScreen()
                         : QuizQuestionScreen(
+                            isSpinWheelParticipants: false,
                             isSpining: isSpinWheel,
                           ),
                   );

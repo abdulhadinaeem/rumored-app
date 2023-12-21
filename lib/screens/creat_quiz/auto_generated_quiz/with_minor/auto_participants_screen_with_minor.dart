@@ -1,5 +1,4 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
-import 'package:rumo_red_app/screens/join_quiz_screens/quiz_question.dart';
 
 class AutoParticipantsScreenWithMinor extends StatelessWidget {
   const AutoParticipantsScreenWithMinor({
@@ -19,14 +18,15 @@ class AutoParticipantsScreenWithMinor extends StatelessWidget {
                 ),
                 Image.asset("assets/images/auto-generate.png"),
                 CustomParicipantsContainer(
-                  image: "assets/images/frame.png",
-                  title: "You",
+                  image: controller.imageList,
+                  title: controller.nameList,
                   buttonTitle: "Start Quiz",
                   isButtonRequired: true,
                   onPressed: () {
                     Get.to(
                       QuizQuestionScreen(
                         isSpining: false,
+                        isSpinWheelParticipants: false,
                       ),
                     );
                   },

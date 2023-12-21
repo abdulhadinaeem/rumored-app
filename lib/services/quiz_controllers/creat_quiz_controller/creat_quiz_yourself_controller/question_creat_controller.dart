@@ -20,7 +20,9 @@ class QuestionCreatController extends GetxController {
   void backGroundColor() {
     color = isSpinDrinkingGame
         ? AppColors.drinkingScreenBackgroundTheme
-        : AppColors.primaryColor;
+        : isSpinWheelParticipants
+            ? AppColors.spinWheelScreenBackGroundColor
+            : AppColors.primaryColor;
   }
 
   void showImage() {
@@ -72,6 +74,7 @@ class QuestionCreatController extends GetxController {
               isSpiningScreen: isSpining,
               isSpinDrinking: isSpinDrinkingGame,
               isDrinkingGame: isDrinkingGame,
+              isSpinWheelParticipants: isSpinWheelParticipants,
             ),
           );
           return;

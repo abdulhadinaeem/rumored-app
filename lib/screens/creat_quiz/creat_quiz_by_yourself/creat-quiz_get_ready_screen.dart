@@ -5,13 +5,15 @@ class CreatQuizGetReadyScreen extends StatelessWidget {
       {super.key,
       required this.isSpiningScreen,
       required this.isSpinDrinking,
-      required this.isDrinkingGame});
+      required this.isDrinkingGame,
+      required this.isSpinWheelParticipants});
   bool isSpiningScreen;
-  bool isSpinDrinking, isDrinkingGame;
+  bool isSpinDrinking, isDrinkingGame, isSpinWheelParticipants;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CreateQuizGetReadyController>(
         init: CreateQuizGetReadyController(
+          isSpinWheelParticipants: isSpinWheelParticipants,
           isSpinDrinking: isSpinDrinking,
           isSpiningScreen: isSpiningScreen,
           isDrinkingGame: isDrinkingGame,

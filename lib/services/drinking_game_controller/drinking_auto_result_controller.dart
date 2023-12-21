@@ -6,8 +6,14 @@ class DrinkingAutoResultController extends GetxController {
   void goToNextScreen() {
     Get.to(isDrinkingGame
         ? SpinWheelQuizStartScreen(
+            isSpining: false,
             isDrinkingGame: isDrinkingGame,
+            isSpinWheelParticipants: false,
           )
-        : ResultWinScreen(isDrinkingGame: true));
+        : ResultWinScreen(
+            isDrinkingGame: true,
+            isSpinWheelParticipants: false,
+            isSpining: false,
+          ));
   }
 }

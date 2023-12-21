@@ -61,8 +61,10 @@ class SpinWheelDrinkingQuizScreen extends StatelessWidget {
                     height: 15,
                   ),
                   for (int i = 0; i < 4; i++)
-                    participantsContainer(
-                        context, controller.name[i], controller.image[i]),
+                    CustomParticipantsContainerList(
+                      title: controller.name[i],
+                      url: controller.image[i],
+                    ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 15),

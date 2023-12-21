@@ -30,10 +30,10 @@ class GetReadyScreenController extends GetxController {
     Future.delayed(const Duration(seconds: 3), () {
       Get.offAll(
         QuizQuestionScreen(
+          isSpinWheelParticipants: false,
           isSpining: false,
         ),
       );
     });
-    update();
   }
 }

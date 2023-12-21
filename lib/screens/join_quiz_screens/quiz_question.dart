@@ -1,16 +1,36 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class QuizQuestionScreen extends StatelessWidget with GradinetScaffold {
-  QuizQuestionScreen({super.key, required this.isSpining});
-  bool isSpining;
+  QuizQuestionScreen(
+      {super.key,
+      required this.isSpining,
+      required this.isSpinWheelParticipants});
+  bool isSpining, isSpinWheelParticipants;
 
   @override
   Widget build(BuildContext context) {
-    return containerGradient(
-      Scaffold(
+    return Container(
+      decoration: BoxDecoration(
+        gradient: isSpinWheelParticipants || isSpining
+            ? const LinearGradient(
+                colors: [
+                  Color(0XFF134753),
+                  Color(0XFF16315A),
+                ],
+              )
+            : const LinearGradient(
+                colors: [
+                  Color(0XFF2B9689),
+                  Color(0XFF2B5696),
+                ],
+              ),
+      ),
+      child: Scaffold(
         backgroundColor: Colors.transparent,
         body: GetBuilder<QuizQuestionController>(
-            init: QuizQuestionController(isSpining: isSpining),
+            init: QuizQuestionController(
+                isSpining: isSpining,
+                isSpinWheelParticipants: isSpinWheelParticipants),
             builder: (controller) {
               return Column(
                 children: [
@@ -54,8 +74,10 @@ class QuizQuestionScreen extends StatelessWidget with GradinetScaffold {
                     height: 15,
                   ),
                   for (int i = 0; i < 4; i++)
-                    participantsContainer(
-                        context, controller.name[i], controller.image[i]),
+                    CustomParticipantsContainerList(
+                      title: controller.name[i],
+                      url: controller.image[i],
+                    ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 15),
@@ -72,44 +94,4 @@ class QuizQuestionScreen extends StatelessWidget with GradinetScaffold {
       ),
     );
   }
-}
-
-Widget participantsContainer(BuildContext context, String name, image) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-    child: Container(
-      height: MediaQuery.of(context).size.height * 0.07,
-      decoration: BoxDecoration(
-        border: Border.all(
-            width: 1, color: AppColors.quizQuestionScreenbottonColor),
-        borderRadius: const BorderRadius.all(Radius.circular(30)),
-        shape: BoxShape.rectangle,
-        color: AppColors.getReadyContainerColor,
-      ),
-      child: customListtile(name, image),
-    ),
-  );
-}
-
-Widget customListtile(String title, String url) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(
-      horizontal: 15,
-    ),
-    child: ListTile(
-      leading: CircleAvatar(
-        backgroundColor: AppColors.getReadyContainerColor,
-        backgroundImage: AssetImage(url),
-        radius: 15,
-      ),
-      title: Text(
-        title,
-        style: const TextStyle(
-          color: AppColors.textFiledColor,
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-        ),
-      ),
-    ),
-  );
 }

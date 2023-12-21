@@ -4,13 +4,16 @@ class CreateQuizGetReadyController extends GetxController {
   CreateQuizGetReadyController(
       {required this.isSpinDrinking,
       required this.isSpiningScreen,
-      required this.isDrinkingGame});
-  bool isSpinDrinking, isSpiningScreen, isDrinkingGame;
+      required this.isDrinkingGame,
+      required this.isSpinWheelParticipants});
+  bool isSpinDrinking, isSpiningScreen, isDrinkingGame, isSpinWheelParticipants;
   late Color color;
   void backgroundColor() {
     color = isSpinDrinking
         ? AppColors.drinkingScreenBackgroundTheme
-        : AppColors.primaryColor;
+        : isSpinWheelParticipants
+            ? AppColors.spinWheelScreenBackGroundColor
+            : AppColors.primaryColor;
   }
 
   void goToNextScreen() {
@@ -20,6 +23,7 @@ class CreateQuizGetReadyController extends GetxController {
               isDrinkingGame: isDrinkingGame,
             )
           : QuizQuestionScreen(
+              isSpinWheelParticipants: isSpinWheelParticipants,
               isSpining: isSpiningScreen,
             ),
     );

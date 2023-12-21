@@ -1,12 +1,18 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class CustomSpinWheel extends StatelessWidget {
-  CustomSpinWheel({super.key, required this.isDrinkingGame});
-  bool isDrinkingGame;
+  CustomSpinWheel(
+      {super.key,
+      required this.isDrinkingGame,
+      required this.isSpinWheelParticipants});
+  bool isDrinkingGame, isSpinWheelParticipants;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SpinWheelQuizStartController>(
-      init: SpinWheelQuizStartController(isDrinkingGame: isDrinkingGame),
+      init: SpinWheelQuizStartController(
+          isDrinkingGame: isDrinkingGame,
+          isSpinWheelParticipants: isSpinWheelParticipants,
+          isSpining: false),
       builder: (controller) {
         return Column(
           children: [

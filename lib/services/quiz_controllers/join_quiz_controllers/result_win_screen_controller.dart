@@ -1,13 +1,18 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class ResultWinScreenController extends GetxController {
-  ResultWinScreenController({required this.isDrinkingGame});
-  bool isDrinkingGame;
+  ResultWinScreenController(
+      {required this.isDrinkingGame,
+      required this.isSpinWheelParticipants,
+      required this.isSpining});
+  bool isDrinkingGame, isSpinWheelParticipants, isSpining;
   late Color color;
   backGroundColor() {
     color = isDrinkingGame
         ? AppColors.drinkingScreenBackgroundTheme
-        : AppColors.primaryColor;
+        : isSpinWheelParticipants || isSpining
+            ? AppColors.spinWheelScreenBackGroundColor
+            : AppColors.primaryColor;
   }
 
   void goToextScreen() {

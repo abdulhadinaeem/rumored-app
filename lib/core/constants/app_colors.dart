@@ -26,4 +26,5 @@ class AppColors {
   static const Color buySubscriptionButtonTextColor = Color(0XFF17929A);
   static const Color profileScreenTitleColor = Color(0XFF797575);
   static const Color profileScreenListTextColor = Color(0XFF4B4A4A);
+  static const Color spinWheelScreenBackGroundColor = Color(0XFF134A52);
 }

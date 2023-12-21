@@ -5,13 +5,27 @@ class AutoParticipantsWithoutMinorController extends GetxController {
       {required this.isSpining,
       required this.isWithoutMinorDrinking,
       required this.isAutoParticipantsDrinking});
+  List<String> nameList = [
+    "You",
+    "April John",
+    "Veronica Park",
+    "Jonathon Roye",
+  ];
+  List<String> imageList = [
+    "assets/images/frame.png",
+    "assets/images/p-1.png",
+    "assets/images/p-2.png",
+    "assets/images/p-3.png",
+  ];
   bool isSpining, isWithoutMinorDrinking, isAutoParticipantsDrinking;
   late Image image;
   late Color color;
   bachGroundColor() {
     color = isWithoutMinorDrinking || isAutoParticipantsDrinking
         ? AppColors.drinkingScreenBackgroundTheme
-        : AppColors.primaryColor;
+        : isSpining
+            ? AppColors.spinWheelScreenBackGroundColor
+            : AppColors.primaryColor;
   }
 
   showImage() {

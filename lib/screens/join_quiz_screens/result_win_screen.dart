@@ -1,13 +1,20 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class ResultWinScreen extends StatelessWidget {
-  ResultWinScreen({super.key, required this.isDrinkingGame});
-  bool isDrinkingGame;
+  ResultWinScreen(
+      {super.key,
+      required this.isDrinkingGame,
+      required this.isSpining,
+      required this.isSpinWheelParticipants});
+  bool isDrinkingGame, isSpinWheelParticipants, isSpining;
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ResultWinScreenController>(
-      init: ResultWinScreenController(isDrinkingGame: isDrinkingGame),
+      init: ResultWinScreenController(
+          isSpining: isSpining,
+          isDrinkingGame: isDrinkingGame,
+          isSpinWheelParticipants: isSpinWheelParticipants),
       builder: (controller) {
         return Scaffold(
           backgroundColor: controller.color,

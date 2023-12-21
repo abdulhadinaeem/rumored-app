@@ -1,10 +1,14 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class QuizQuestionController extends GetxController {
-  QuizQuestionController({
-    required this.isSpining,
-  });
-  bool isSpining;
+  QuizQuestionController(
+      {required this.isSpining, required this.isSpinWheelParticipants});
+  @override
+  void onInit() {
+    super.onInit();
+  }
+
+  bool isSpining, isSpinWheelParticipants;
 
   List<String> name = [
     "You",
@@ -22,6 +26,8 @@ class QuizQuestionController extends GetxController {
     Get.to(
       isSpining
           ? SpinWheelQuizStartScreen(
+              isSpining: isSpining,
+              isSpinWheelParticipants: isSpinWheelParticipants,
               isDrinkingGame: false,
             )
           : const ResultScreen(),

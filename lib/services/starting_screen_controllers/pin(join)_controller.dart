@@ -32,7 +32,9 @@ class PinJoinController extends GetxController {
         ? AppColors.drinkingScreenBackgroundTheme
         : isAutoParticipantsDrinking
             ? AppColors.drinkingScreenBackgroundTheme
-            : AppColors.primaryColor;
+            : isSpinWheelScreen
+                ? AppColors.spinWheelScreenBackGroundColor
+                : AppColors.primaryColor;
   }
 
   goTonextScreens() {

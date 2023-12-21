@@ -31,8 +31,8 @@ class CreateQuizParicipantsScreen extends StatelessWidget {
                     height: 15,
                   ),
                   CustomParicipantsContainer(
-                    image: "assets/images/p-1.png",
-                    title: "You",
+                    image: controller.imageList,
+                    title: controller.nameList,
                     buttonTitle: "Next",
                     isButtonRequired: true,
                     onPressed: () {

@@ -1,13 +1,20 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class SpinWheelQuizStartScreen extends StatelessWidget {
-  SpinWheelQuizStartScreen({super.key, required this.isDrinkingGame});
-  bool isDrinkingGame;
+  SpinWheelQuizStartScreen(
+      {super.key,
+      required this.isDrinkingGame,
+      required this.isSpining,
+      required this.isSpinWheelParticipants});
+  bool isDrinkingGame, isSpinWheelParticipants, isSpining;
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SpinWheelQuizStartController>(
-      init: SpinWheelQuizStartController(isDrinkingGame: isDrinkingGame),
+      init: SpinWheelQuizStartController(
+          isDrinkingGame: isDrinkingGame,
+          isSpinWheelParticipants: isSpinWheelParticipants,
+          isSpining: isSpining),
       builder: (controller) {
         return Scaffold(
           backgroundColor: controller.color,
@@ -27,6 +34,7 @@ class SpinWheelQuizStartScreen extends StatelessWidget {
               SizedBox(height: context.height * 0.15),
               CustomSpinWheel(
                 isDrinkingGame: isDrinkingGame,
+                isSpinWheelParticipants: isSpinWheelParticipants,
               ),
               TextButton(
                 onPressed: () {
