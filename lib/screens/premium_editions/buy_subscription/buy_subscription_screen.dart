@@ -1,4 +1,4 @@
-import 'package:rumo_red_app/core/constants/imports.dart ';
+import 'package:rumo_red_app/core/constants/imports.dart';
 
 class BuySubscriptionScreen extends StatelessWidget {
   const BuySubscriptionScreen({super.key});
@@ -9,7 +9,9 @@ class BuySubscriptionScreen extends StatelessWidget {
         init: BuySubscriptionController(),
         builder: (controller) {
           return Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+            ),
             child: Scaffold(
               backgroundColor: Colors.transparent,
               body: Container(
@@ -36,12 +38,13 @@ class BuySubscriptionScreen extends StatelessWidget {
                         height: 15,
                       ),
                       Center(
-                          child: SvgPicture.asset("assets/images/dimond1.svg")),
+                        child: AppImages.buySubscriptionDimondImage,
+                      ),
                       const SizedBox(
                         height: 10,
                       ),
                       const Text(
-                        "Choose Your Plan",
+                        Strings.choosePlan,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 17,
@@ -52,7 +55,7 @@ class BuySubscriptionScreen extends StatelessWidget {
                         height: 10,
                       ),
                       const Text(
-                        "Start with 3 days free trail upgrade or\ndowngrade anytime",
+                        Strings.startWithThreeDaysTrail,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 12,
@@ -87,7 +90,7 @@ class BuySubscriptionScreen extends StatelessWidget {
                         height: MediaQuery.of(context).size.height * 0.1,
                       ),
                       CustomButton(
-                        title: "Continue",
+                        title: Strings.conTinue,
                         onPressed: () {
                           controller.onPressed(context);
                         },

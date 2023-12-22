@@ -12,55 +12,60 @@ class CreatQuizGetReadyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CreateQuizGetReadyController>(
-        init: CreateQuizGetReadyController(
-          isSpinWheelParticipants: isSpinWheelParticipants,
-          isSpinDrinking: isSpinDrinking,
-          isSpiningScreen: isSpiningScreen,
-          isDrinkingGame: isDrinkingGame,
-        ),
-        builder: (controller) {
-          return Scaffold(
-            backgroundColor: controller.color,
-            body: Column(
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.15,
+      init: CreateQuizGetReadyController(
+        isSpinWheelParticipants: isSpinWheelParticipants,
+        isSpinDrinking: isSpinDrinking,
+        isSpiningScreen: isSpiningScreen,
+        isDrinkingGame: isDrinkingGame,
+      ),
+      builder: (controller) {
+        return Scaffold(
+          backgroundColor: controller.color,
+          body: Column(
+            children: [
+              SizedBox(
+                height: context.height * 0.15,
+              ),
+              Center(
+                child: Text(
+                  Strings.getReady,
+                  style: context.textTheme.displayLarge,
                 ),
-                Center(
-                  child: Text(
-                    "Get Ready!",
-                    style: Theme.of(context).textTheme.displayLarge,
-                  ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text(
+                Strings.quizStartSoon,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white,
                 ),
-                const SizedBox(
-                  height: 15,
+              ),
+              SizedBox(
+                height: context.height * 0.1,
+              ),
+              AppImages.getReadyScreenImage,
+              SizedBox(
+                height: context.height * 0.1,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 12,
+                  right: 12,
                 ),
-                const Text(
-                  "The Quiz Will Star Soon",
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white),
+                child: CustomButton(
+                  title: Strings.start,
+                  onPressed: () {
+                    controller.goToNextScreen();
+                  },
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
-                ),
-                Image.asset("assets/images/get-ready2.png"),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12, right: 12),
-                  child: CustomButton(
-                    title: "Start",
-                    onPressed: () {
-                      controller.goToNextScreen();
-                    },
-                  ),
-                ),
-              ],
-            ),
-          );
-        });
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

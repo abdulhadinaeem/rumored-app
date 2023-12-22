@@ -28,9 +28,9 @@ class QuestionCreatController extends GetxController {
   void showImage() {
     image = isSpinWheelParticipants
         ? isSpinDrinkingGame
-            ? SvgPicture.asset("assets/images/twodrinks11.svg")
-            : SvgPicture.asset("assets/images/text11.svg")
-        : SvgPicture.asset("assets/images/ques11.svg");
+            ? AppImages.twoDrinksImage
+            : AppImages.textfieldImage
+        : AppImages.questionmarkTextFieldImage;
   }
 
   void initializeQuiz() {

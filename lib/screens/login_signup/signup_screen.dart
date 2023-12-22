@@ -19,50 +19,28 @@ class SignUpScreen extends StatelessWidget with Validator {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.10,
+                      height: context.height * 0.1,
                     ),
                     Center(
-                      child: Text('Create Your Account',
-                          style: Theme.of(context).textTheme.displayLarge),
+                      child: Text(
+                        Strings.createAccout,
+                        style: context.textTheme.displayLarge,
+                      ),
                     ),
                     const SizedBox(
-                      height: 15,
+                      height: 20,
                     ),
-                    CustomTextField(
-                        hintText: 'Name',
-                        controller: controller.userNameController,
-                        validator: userNameValidator),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    CustomTextField(
-                        hintText: 'Email',
-                        controller: controller.emailController,
-                        validator: emailValidator),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    CustomTextField(
-                        hintText: 'Mobile Number',
-                        controller: controller.phoneNumberController,
-                        validator: phoneNumberValidator),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    CustomTextField(
-                        hintText: 'Country',
-                        controller: controller.contaryController,
-                        validator: countaryValidator),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    CustomTextField(
-                        hintText: 'Password',
-                        controller: controller.passwordController,
-                        validator: passWordValidator),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                    for (int i = 0;
+                        i < controller.signUpTextFieldDataList.length;
+                        i++)
+                      CustomTextField(
+                        hintText:
+                            controller.signUpTextFieldDataList[i].hintText,
+                        controller:
+                            controller.signUpTextFieldDataList[i].controller,
+                        validator:
+                            controller.signUpTextFieldDataList[i].validator,
+                      ),
                     CheckboxListTile(
                       controlAffinity: ListTileControlAffinity.leading,
                       checkColor: Colors.black,
@@ -78,7 +56,7 @@ class SignUpScreen extends StatelessWidget with Validator {
                               },
                             ),
                       title: signUpBottomText(
-                          "I agree with ", "Terms & Conditions"),
+                          context, Strings.iAgree, Strings.termsAndCondition),
                       value: controller.isTermandconditionChecked,
                       onChanged: controller.checkBoxValue,
                     ),
@@ -86,7 +64,7 @@ class SignUpScreen extends StatelessWidget with Validator {
                       height: 15,
                     ),
                     CustomButton(
-                        title: 'SignUp',
+                        title: Strings.signUp,
                         onPressed: () {
                           Get.to(
                             const DashBoardScreen(),
@@ -101,8 +79,11 @@ class SignUpScreen extends StatelessWidget with Validator {
                           LoginScreen(),
                         );
                       },
-                      child:
-                          signUpBottomText("Already have an account?", "Login"),
+                      child: signUpBottomText(
+                        context,
+                        Strings.alreadyHaveAccout,
+                        Strings.login,
+                      ),
                     ),
                   ],
                 ),
@@ -114,26 +95,20 @@ class SignUpScreen extends StatelessWidget with Validator {
     );
   }
 
-  Widget signUpBottomText(String text1, text2) {
+  Widget signUpBottomText(BuildContext context, String text1, text2) {
     return RichText(
       text: TextSpan(
         children: [
           TextSpan(
-            text: text1,
-            style: const TextStyle(
-              color: AppColors.textFiledColor,
-              fontWeight: FontWeight.w400,
-              fontSize: 14,
-            ),
-          ),
+              text: text1,
+              style: context.textTheme.displaySmall?.copyWith(
+                color: AppColors.textFiledColor,
+              )),
           TextSpan(
-            text: text2,
-            style: const TextStyle(
-              color: AppColors.loginScreenBoldTextColor,
-              fontWeight: FontWeight.w400,
-              fontSize: 14,
-            ),
-          ),
+              text: text2,
+              style: context.textTheme.displaySmall?.copyWith(
+                color: AppColors.loginScreenBoldTextColor,
+              )),
         ],
       ),
     );

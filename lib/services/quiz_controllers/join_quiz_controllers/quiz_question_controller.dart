@@ -3,8 +3,28 @@ import 'package:rumo_red_app/core/constants/imports.dart';
 class QuizQuestionController extends GetxController {
   QuizQuestionController(
       {required this.isSpining, required this.isSpinWheelParticipants});
+  late BoxDecoration boxDecoration;
+  void decoration() {
+    boxDecoration = BoxDecoration(
+      gradient: isSpinWheelParticipants || isSpining
+          ? const LinearGradient(
+              colors: [
+                Color(0XFF134753),
+                Color(0XFF16315A),
+              ],
+            )
+          : const LinearGradient(
+              colors: [
+                Color(0XFF2B9689),
+                Color(0XFF2B5696),
+              ],
+            ),
+    );
+  }
+
   @override
   void onInit() {
+    decoration();
     super.onInit();
   }
 
@@ -29,6 +49,7 @@ class QuizQuestionController extends GetxController {
               isSpining: isSpining,
               isSpinWheelParticipants: isSpinWheelParticipants,
               isDrinkingGame: false,
+              isAutoParticipantsDrinking: false,
             )
           : const ResultScreen(),
     );

@@ -5,13 +5,18 @@ class SpinWheelQuizStartScreen extends StatelessWidget {
       {super.key,
       required this.isDrinkingGame,
       required this.isSpining,
-      required this.isSpinWheelParticipants});
-  bool isDrinkingGame, isSpinWheelParticipants, isSpining;
+      required this.isSpinWheelParticipants,
+      required this.isAutoParticipantsDrinking});
+  bool isDrinkingGame,
+      isSpinWheelParticipants,
+      isSpining,
+      isAutoParticipantsDrinking;
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SpinWheelQuizStartController>(
       init: SpinWheelQuizStartController(
+          isAutoParticipantsDrinking: isAutoParticipantsDrinking,
           isDrinkingGame: isDrinkingGame,
           isSpinWheelParticipants: isSpinWheelParticipants,
           isSpining: isSpining),
@@ -35,6 +40,7 @@ class SpinWheelQuizStartScreen extends StatelessWidget {
               CustomSpinWheel(
                 isDrinkingGame: isDrinkingGame,
                 isSpinWheelParticipants: isSpinWheelParticipants,
+                isAutoParticipantsDrinking: isAutoParticipantsDrinking,
               ),
               TextButton(
                 onPressed: () {

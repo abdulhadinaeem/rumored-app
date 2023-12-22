@@ -15,73 +15,80 @@ class SpinWheelDrinkingQuizScreen extends StatelessWidget {
         ),
       ),
       child: GetBuilder<SpinWheelRrinkingQuizController>(
-          init: SpinWheelRrinkingQuizController(),
-          builder: (controller) {
-            return Scaffold(
-              backgroundColor: Colors.transparent,
-              body: Column(
-                children: [
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.1,
+        init: SpinWheelRrinkingQuizController(),
+        builder: (controller) {
+          return Scaffold(
+            backgroundColor: Colors.transparent,
+            body: Column(
+              children: [
+                SizedBox(
+                  height: context.height * 0.1,
+                ),
+                Center(
+                  child: Text(
+                    "Answer the question",
+                    style: context.textTheme.displayLarge,
                   ),
-                  Center(
-                    child: Text("Answer the question",
-                        style: Theme.of(context).textTheme.displayLarge),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const Text(
+                  "01/20",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.textFiledColor,
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
-                    "01/20",
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const CustomLinearPercentIndicator(
+                  progressColor: AppColors.secondaryColor,
+                  percent: 0.1,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const Center(
+                  child: Text(
+                    "Who is most likely to\n     kill someone?",
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.textFiledColor),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const CustomLinearPercentIndicator(
-                    progressColor: AppColors.secondaryColor,
-                    percent: 0.1,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Center(
-                    child: Text(
-                      "Who is most likely to\n     kill someone?",
-                      style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.textFiledColor),
+                      fontSize: 30,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.textFiledColor,
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                for (int i = 0; i < 4; i++)
+                  CustomParticipantsContainerList(
+                    title: controller.name[i],
+                    url: controller.image[i],
                   ),
-                  for (int i = 0; i < 4; i++)
-                    CustomParticipantsContainerList(
-                      title: controller.name[i],
-                      url: controller.image[i],
-                    ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 15),
-                    child: CustomButton(
-                        title: "Done",
-                        onPressed: () {
-                          Get.to(
-                            DrinkingAutoResultScreen(
-                              isDrinkingGame: isDrinkingGame,
-                            ),
-                          );
-                        }),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                  child: CustomButton(
+                    title: "Done",
+                    onPressed: () {
+                      Get.to(
+                        DrinkingAutoResultScreen(
+                          isDrinkingGame: isDrinkingGame,
+                          isAutoParticipantsDrinking: false,
+                        ),
+                      );
+                    },
                   ),
-                ],
-              ),
-            );
-          }),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

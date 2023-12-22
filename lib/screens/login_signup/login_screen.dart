@@ -21,43 +21,54 @@ class LoginScreen extends StatelessWidget with Validator {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.10,
+                        height: context.height * 0.10,
                       ),
-                      SvgPicture.asset(
-                        "assets/images/logo11.svg",
+                      AppImages.logo,
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        Strings.loginToYourAccount,
+                        style: context.textTheme.displayLarge,
                       ),
                       const SizedBox(
                         height: 15,
                       ),
-                      Text('Login to Your Account',
-                          style: Theme.of(context).textTheme.displayLarge),
+                      for (int i = 0;
+                          i < controller.loginTextFieldDataList.length;
+                          i++)
+                        CustomTextField(
+                          hintText:
+                              controller.loginTextFieldDataList[i].hintText,
+                          controller:
+                              controller.loginTextFieldDataList[i].controller,
+                          validator:
+                              controller.loginTextFieldDataList[i].validator,
+                          obscureText:
+                              controller.loginTextFieldDataList[i].obscureText,
+                          suffixIcon:
+                              controller.loginTextFieldDataList[i].suffixIcon,
+                        ),
                       const SizedBox(
                         height: 15,
                       ),
-                      CustomTextField(
-                          hintText: 'Email',
-                          controller: controller.emailControlletr,
-                          validator: emailValidator),
+                      CustomButton(
+                        title: Strings.login,
+                        onPressed: () {},
+                      ),
                       const SizedBox(
                         height: 15,
                       ),
-                      CustomTextField(
-                          obscureText: true,
-                          hintText: 'Password',
-                          suffixIcon: const Icon(Icons.visibility_off),
-                          controller: controller.passwordControlletr,
-                          validator: passWordValidator),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      CustomButton(title: 'Login', onPressed: () {}),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      bottomText('Forget User / Password?', '', () {}),
                       bottomText(
-                        'Don’t have an account? ',
-                        'Sign Up',
+                        context,
+                        Strings.forgetUserAndPass,
+                        '',
+                        () {},
+                      ),
+                      bottomText(
+                        context,
+                        Strings.dontHaveAnAccount,
+                        Strings.signUp,
                         () {
                           Get.to(
                             SignUpScreen(),
@@ -75,7 +86,8 @@ class LoginScreen extends StatelessWidget with Validator {
     );
   }
 
-  Widget bottomText(String title, boldTitle, Function() onPressed) {
+  Widget bottomText(
+      BuildContext context, String title, boldTitle, Function() onPressed) {
     return TextButton(
       onPressed: onPressed,
       child: RichText(
@@ -83,18 +95,14 @@ class LoginScreen extends StatelessWidget with Validator {
           children: [
             TextSpan(
               text: title,
-              style: const TextStyle(
+              style: context.textTheme.displaySmall?.copyWith(
                 color: AppColors.loginScreensimpleTextColor,
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
               ),
             ),
             TextSpan(
               text: boldTitle,
-              style: const TextStyle(
+              style: context.textTheme.displaySmall?.copyWith(
                 color: AppColors.loginScreenBoldTextColor,
-                fontWeight: FontWeight.w400,
-                fontSize: 14,
               ),
             ),
           ],

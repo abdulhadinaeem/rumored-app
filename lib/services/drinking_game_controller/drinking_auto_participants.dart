@@ -32,7 +32,9 @@ class AutoDrinkingParticipantsController extends GetxController {
               isSpinDrinkingGame: isByYourself,
               isDrinkingGame: false,
             )
-          : const DrinkingQuestionQuizScreen(),
+          : DrinkingQuestionQuizScreen(
+              isAutoParticipantsDrinking: false,
+            ),
     );
   }
 

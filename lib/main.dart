@@ -36,11 +36,15 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w400,
             color: Color(0XFF636161),
           ),
+          headlineLarge: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+            color: AppColors.textFiledColor,
+          ),
         ),
         scaffoldBackgroundColor: AppColors.primaryColor,
       ),
       home: const SplashScreen(),
-      // home: QuestionCreatScreen(),
     );
   }
 }

@@ -86,9 +86,13 @@ class QuestionCreatScreen extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: TextFormField(
+                                style: TextStyle(
+                                    color: isSpinDrinkingGame
+                                        ? Colors.white
+                                        : Colors.black),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
-                                    return 'Please fill the field';
+                                    return Strings.fillField;
                                   } else {
                                     return null;
                                   }
@@ -97,6 +101,10 @@ class QuestionCreatScreen extends StatelessWidget {
                                 decoration: InputDecoration(
                                   hintText:
                                       "Enter ${controller.creatQuizList[controller.curentStep - 1].title}",
+                                  hintStyle: TextStyle(
+                                      color: isSpinDrinkingGame
+                                          ? Colors.white
+                                          : Colors.black),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                   ),
@@ -108,7 +116,7 @@ class QuestionCreatScreen extends StatelessWidget {
                               height: 10,
                             ),
                             CustomButton(
-                                title: "Next",
+                                title: Strings.next,
                                 onPressed: () {
                                   controller.valueUpdate();
                                 }),
@@ -134,12 +142,13 @@ class QuestionCreatScreen extends StatelessWidget {
           Text(
             text,
             style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: AppColors.textFiledColor),
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: AppColors.textFiledColor,
+            ),
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width * 0.1,
+            width: context.width * 0.1,
           ),
         ],
       ),

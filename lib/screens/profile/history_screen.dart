@@ -51,7 +51,7 @@ class HistoryScreen extends StatelessWidget {
           child: ListTile(
             leading: const CircleAvatar(
               radius: 16,
-              backgroundImage: AssetImage('assets/images/frame.png'),
+              backgroundImage: AppImages.profileImage,
             ),
             title: const Text("Team quiz"),
             subtitle: const Text("1 week"),

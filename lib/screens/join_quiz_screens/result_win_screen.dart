@@ -5,47 +5,52 @@ class ResultWinScreen extends StatelessWidget {
       {super.key,
       required this.isDrinkingGame,
       required this.isSpining,
-      required this.isSpinWheelParticipants});
-  bool isDrinkingGame, isSpinWheelParticipants, isSpining;
+      required this.isSpinWheelParticipants,
+      required this.isAutoParticipantsDrinking});
+  bool isDrinkingGame,
+      isSpinWheelParticipants,
+      isSpining,
+      isAutoParticipantsDrinking;
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ResultWinScreenController>(
       init: ResultWinScreenController(
-          isSpining: isSpining,
-          isDrinkingGame: isDrinkingGame,
-          isSpinWheelParticipants: isSpinWheelParticipants),
+        isAutoParticipantsDrinking: isAutoParticipantsDrinking,
+        isSpining: isSpining,
+        isDrinkingGame: isDrinkingGame,
+        isSpinWheelParticipants: isSpinWheelParticipants,
+      ),
       builder: (controller) {
         return Scaffold(
           backgroundColor: controller.color,
           body: Column(
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.1,
+                height: context.height * 0.1,
               ),
-              Text("Try Again",
-                  style: Theme.of(context).textTheme.displayLarge),
+              Text(
+                Strings.tryAgain,
+                style: context.textTheme.displayLarge,
+              ),
               const SizedBox(
                 height: 15,
               ),
-              const Text(
-                "Restart & Play Again",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.textFiledColor),
+              Text(
+                Strings.restartAndPlayAgain,
+                style: context.textTheme.headlineLarge,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: context.height * 0.2,
               ),
-              SvgPicture.asset("assets/images/win11.svg"),
+              AppImages.resultWinScreenImage,
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: context.height * 0.2,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 14),
                 child: CustomButton(
-                  title: "Restart",
+                  title: Strings.restart,
                   onPressed: () {
                     controller.goToextScreen();
                   },

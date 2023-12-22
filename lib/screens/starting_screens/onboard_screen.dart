@@ -20,9 +20,7 @@ class OnBoardScreen extends StatelessWidget {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.11,
                       ),
-                      SvgPicture.asset(
-                        "assets/images/logo11.svg",
-                      ),
+                      AppImages.logo,
                       const SizedBox(
                         height: 12,
                       ),

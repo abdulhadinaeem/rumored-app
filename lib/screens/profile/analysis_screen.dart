@@ -76,7 +76,9 @@ class AnalysisScreen extends StatelessWidget {
                           for (int i = 0; i <= 6; i++)
                             customContainer(
                                 controller.name[i], controller.image[i], () {
-                              Get.to(YourCharacterScreen());
+                              Get.to(
+                                YourCharacterScreen(),
+                              );
                             }),
                         ],
                       ),

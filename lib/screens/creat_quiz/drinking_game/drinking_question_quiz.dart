@@ -1,7 +1,9 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class DrinkingQuestionQuizScreen extends StatelessWidget with GradinetScaffold {
-  const DrinkingQuestionQuizScreen({super.key});
+  DrinkingQuestionQuizScreen(
+      {super.key, required this.isAutoParticipantsDrinking});
+  bool isAutoParticipantsDrinking;
 
   @override
   Widget build(BuildContext context) {
@@ -14,17 +16,17 @@ class DrinkingQuestionQuizScreen extends StatelessWidget with GradinetScaffold {
             return Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
+                  height: context.height * 0.1,
                 ),
                 Center(
-                  child: Text("Answer the question",
-                      style: Theme.of(context).textTheme.displayLarge),
+                  child: Text(Strings.answerTheQues,
+                      style: context.textTheme.displayLarge),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
                 const Text(
-                  "01/20",
+                  Strings.oneOutOfTwenty,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
@@ -43,7 +45,7 @@ class DrinkingQuestionQuizScreen extends StatelessWidget with GradinetScaffold {
                 ),
                 const Center(
                   child: Text(
-                    "Who is most likely to\nkill someone?",
+                    Strings.questionOne,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 30,
@@ -57,8 +59,8 @@ class DrinkingQuestionQuizScreen extends StatelessWidget with GradinetScaffold {
                 ),
                 for (int i = 0; i < 4; i++)
                   CustomParticipantsContainerList(
-                    title: "You",
-                    url: "assets/images/frame.png",
+                    title: Strings.you,
+                    url: Strings.frameImage,
                   ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -66,10 +68,14 @@ class DrinkingQuestionQuizScreen extends StatelessWidget with GradinetScaffold {
                     vertical: 15,
                   ),
                   child: CustomButton(
-                    title: "Done",
+                    title: Strings.done,
                     onPressed: () {
                       Get.to(
-                        DrinkingAutoResultScreen(isDrinkingGame: false),
+                        DrinkingAutoResultScreen(
+                          isDrinkingGame: false,
+                          isAutoParticipantsDrinking:
+                              isAutoParticipantsDrinking,
+                        ),
                       );
                     },
                   ),

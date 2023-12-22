@@ -37,6 +37,18 @@ class AutoParticipantsWithoutMinorController extends GetxController {
     update();
   }
 
+  goToNextScreen() {
+    Get.to(
+      isWithoutMinorDrinking || isAutoParticipantsDrinking
+          ? DrinkingQuestionQuizScreen(
+              isAutoParticipantsDrinking: isAutoParticipantsDrinking)
+          : QuizQuestionScreen(
+              isSpinWheelParticipants: false,
+              isSpining: isSpining,
+            ),
+    );
+  }
+
   @override
   void onInit() {
     bachGroundColor();

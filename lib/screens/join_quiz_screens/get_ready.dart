@@ -8,73 +8,49 @@ class GetReadyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<GetReadyScreenController>(
-        init: GetReadyScreenController(),
-        builder: (controller) {
-          return Scaffold(
-            body: Column(
+      init: GetReadyScreenController(),
+      builder: (controller) {
+        return Scaffold(
+          body: Center(
+            child: Column(
               children: [
                 SizedBox(
-                  height: context.height * 0.1,
+                  height: context.height * 0.08,
                 ),
-                screenHeading(context),
+                Text(
+                  Strings.getReady,
+                  style: context.textTheme.displayLarge,
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  Strings.quizStartSoon,
+                  style: context.textTheme.headlineLarge,
+                  textAlign: TextAlign.center,
+                ),
+                AppImages.getReadyScreenImage,
                 const SizedBox(
-                  height: 15,
+                  height: 10,
                 ),
-                Expanded(
-                  child: CustomParicipantsContainer(
-                    title: controller.name,
-                    image: controller.image,
-                    buttonTitle: '',
-                    isButtonRequired: false,
+                Text(
+                  Strings.twentyMoreParticipants,
+                  style: context.textTheme.displaySmall?.copyWith(
+                    color: Colors.white,
                   ),
                 ),
-              ],
-            ),
-          );
-        });
-  }
-
-  Widget screenHeading(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "  Get Ready!\n\n",
-                  style: Theme.of(context).textTheme.displayLarge,
+                const SizedBox(
+                  height: 20,
                 ),
-                const TextSpan(
-                  text: "The Quiz Will Star Soon",
-                  style: TextStyle(
-                    color: AppColors.textFiledColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
+                CustomParicipantsContainer(
+                  title: controller.name,
+                  image: controller.image,
+                  buttonTitle: '',
+                  isButtonRequired: false,
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 15,
-          ),
-          SvgPicture.asset(
-            "assets/images/getReady.svg",
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          const Text(
-            "20 more participants besides you in this game",
-            style: TextStyle(
-              color: AppColors.textFiledColor,
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

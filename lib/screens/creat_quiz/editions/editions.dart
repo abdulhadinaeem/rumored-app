@@ -18,8 +18,10 @@ class EditionsScreen extends StatelessWidget {
               SizedBox(
                 height: context.height * 0.01,
               ),
-              Text("Pick any edition",
-                  style: Theme.of(context).textTheme.displayLarge),
+              Text(
+                Strings.pickEdition,
+                style: context.textTheme.displayLarge,
+              ),
               const SizedBox(
                 height: 15,
               ),

@@ -1,6 +1,20 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class CreatQuizByYourselfPage2Controller extends GetxController {
+  List<CustomQuestionButtonModel> creatQuiz2DataList = [
+    CustomQuestionButtonModel(
+      text: "2 choices",
+    ),
+    CustomQuestionButtonModel(
+      text: "3 choices",
+    ),
+    CustomQuestionButtonModel(
+      text: "4 choices",
+    ),
+    CustomQuestionButtonModel(
+      text: "5 choices",
+    ),
+  ];
   void goToNextScreen() {
     Get.to(
       () => PinJoinScreen(

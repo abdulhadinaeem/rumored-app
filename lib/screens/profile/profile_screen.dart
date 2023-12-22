@@ -15,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
                 Stack(
                   children: [
                     Container(
-                      height: MediaQuery.of(context).size.height * 0.2,
+                      height: context.height * 0.2,
                       width: double.infinity,
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -38,12 +38,10 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     Container(
                       margin: const EdgeInsets.only(top: 100),
-                      child: const Center(
+                      child: Center(
                         child: CircleAvatar(
                           backgroundColor: AppColors.primaryColor,
-                          backgroundImage: AssetImage(
-                            "assets/images/frame.png",
-                          ),
+                          backgroundImage: AppImages.profileImage,
                           radius: 50,
                         ),
                       ),
@@ -80,9 +78,7 @@ class ProfileScreen extends StatelessWidget {
                               () => const HistoryScreen(),
                             );
                           },
-                          icon: Image.asset(
-                            "assets/images/history3.png",
-                          ),
+                          icon: AppImages.profileHistoryImage,
                         ),
                         const Text(
                           "History",
@@ -101,43 +97,28 @@ class ProfileScreen extends StatelessWidget {
                               () => const AnalysisScreen(),
                             );
                           },
-                          icon: Image.asset(
-                            "assets/images/analysis3.png",
-                          ),
+                          icon: AppImages.profileAnalysisImage,
                         ),
                         const Text(
                           "Analysis",
                           style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black),
-                        )
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                          ),
+                        ),
                       ],
                     ),
                   ],
                 ),
-                profileListTile("Edit Profile", "assets/images/edit-pen.svg",
-                    "assets/images/next.svg", "Account"),
-                profileListTile(
-                    "Help & Support",
-                    "assets/images/icon-park-solid_help.svg",
-                    "assets/images/next.svg",
-                    "About"),
-                profileListTile(
-                  "About Us",
-                  "assets/images/about-us.svg",
-                  "assets/images/next.svg",
-                ),
-                profileListTile(
-                  "Privacy Policy",
-                  "assets/images/privacy.svg",
-                  "assets/images/next.svg",
-                ),
-                profileListTile(
-                    "Subscription",
-                    "assets/images/subscription.svg",
-                    "assets/images/next.svg",
-                    "General"),
+                for (int i = 0;
+                    i < controller.profileScreenListTileData.length;
+                    i++)
+                  profileListTile(
+                      controller.profileScreenListTileData[i].title ?? '',
+                      controller.profileScreenListTileData[i].listTileTitle ??
+                          '',
+                      controller.profileScreenListTileData[i].image ?? ''),
               ],
             ),
           );
@@ -145,8 +126,11 @@ class ProfileScreen extends StatelessWidget {
   }
 }
 
-profileListTile(String listTiletext, leadingIcon, trallingIcon,
-    [String? title]) {
+profileListTile(
+  String title,
+  String listTiletext,
+  String leadingIcon,
+) {
   return Column(
     children: [
       Padding(
@@ -154,7 +138,7 @@ profileListTile(String listTiletext, leadingIcon, trallingIcon,
         child: Align(
           alignment: Alignment.topLeft,
           child: Text(
-            title ?? '',
+            title,
             style: const TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
@@ -176,14 +160,14 @@ profileListTile(String listTiletext, leadingIcon, trallingIcon,
               fontWeight: FontWeight.w600,
               color: AppColors.profileScreenListTextColor),
         ),
-        trailing: SvgPicture.asset(trallingIcon),
+        trailing: AppImages.profileGoNextArrowImage,
       ),
       const Padding(
         padding: EdgeInsets.only(left: 12, right: 12),
         child: Divider(
           thickness: 1,
         ),
-      )
+      ),
     ],
   );
 }

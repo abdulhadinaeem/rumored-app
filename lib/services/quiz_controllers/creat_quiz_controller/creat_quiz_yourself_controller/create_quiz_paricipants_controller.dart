@@ -22,8 +22,8 @@ class CreateQuizParicipantscontroller extends GetxController {
   ];
   void showImage() {
     image = isSpinWheelParticipants
-        ? SvgPicture.asset("assets/images/s11.svg")
-        : SvgPicture.asset("assets/images/quiz_par11.svg");
+        ? AppImages.spinWheelImage
+        : AppImages.createParticipantsImage;
   }
 
   void backGroundColor() {

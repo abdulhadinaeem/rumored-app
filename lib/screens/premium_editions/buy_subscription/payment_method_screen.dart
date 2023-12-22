@@ -37,16 +37,16 @@ class PaymentMethodScreen extends StatelessWidget {
                     Column(
                       children: [
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.06,
+                          height: context.height * 0.06,
                         ),
                         Center(
-                            child:
-                                SvgPicture.asset("assets/images/payment.svg")),
+                          child: AppImages.paymentScreenImage,
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
                         const Text(
-                          "Select a Method",
+                          Strings.selectMethod,
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
@@ -56,7 +56,7 @@ class PaymentMethodScreen extends StatelessWidget {
                           height: 10,
                         ),
                         const Text(
-                          "Start with 3 days free trail upgrade or\ndowngrade anytime",
+                          Strings.startWithThreeDaysTrail,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 20,
@@ -87,10 +87,10 @@ class PaymentMethodScreen extends StatelessWidget {
                           image: "assets/images/google-pay.svg",
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.05,
+                          height: context.height * 0.05,
                         ),
                         CustomButton(
-                          title: "Continue",
+                          title: Strings.conTinue,
                           onPressed: () {},
                         ),
                       ],

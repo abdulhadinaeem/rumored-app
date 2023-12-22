@@ -45,7 +45,7 @@ class AfterAdScreen extends StatelessWidget {
                     height: 15,
                   ),
                   CustomButton(
-                    title: "View All",
+                    title: Strings.viewAll,
                     onPressed: () {},
                   ),
                 ],

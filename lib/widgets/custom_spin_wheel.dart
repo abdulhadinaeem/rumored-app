@@ -4,27 +4,33 @@ class CustomSpinWheel extends StatelessWidget {
   CustomSpinWheel(
       {super.key,
       required this.isDrinkingGame,
-      required this.isSpinWheelParticipants});
-  bool isDrinkingGame, isSpinWheelParticipants;
+      required this.isSpinWheelParticipants,
+      required this.isAutoParticipantsDrinking});
+  bool isDrinkingGame, isSpinWheelParticipants, isAutoParticipantsDrinking;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SpinWheelQuizStartController>(
       init: SpinWheelQuizStartController(
           isDrinkingGame: isDrinkingGame,
           isSpinWheelParticipants: isSpinWheelParticipants,
-          isSpining: false),
+          isSpining: false,
+          isAutoParticipantsDrinking: isAutoParticipantsDrinking),
       builder: (controller) {
         return Column(
           children: [
             SpinningWheel(
-              image: SvgPicture.asset("assets/images/wheell.svg"),
-              width: 310,
-              height: 310,
+              image: Image.asset("assets/images/wheell.png"),
+              width: 350,
+              height: 350,
               dividers: 12,
               onUpdate: controller.dividerController.add,
               initialSpinAngle: 0.1,
-              spinResistance: 0.1,
+              spinResistance: 0.3,
               onEnd: controller.dividerController.add,
+              secondaryImage: Image.asset("assets/images/shadow11.png"),
+              secondaryImageTop: 190,
+              secondaryImageHeight: 220,
+              secondaryImageWidth: 230,
             ),
             const SizedBox(height: 2),
             // StreamBuilder(

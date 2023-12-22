@@ -1,5 +1,4 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
-import 'package:rumo_red_app/screens/creat_quiz/drinking_game/drinking_question_quiz.dart';
 
 class AutoParticipantsWithoutMinor extends StatelessWidget {
   AutoParticipantsWithoutMinor(
@@ -22,23 +21,16 @@ class AutoParticipantsWithoutMinor extends StatelessWidget {
           body: Column(
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.1,
+                height: context.height * 0.1,
               ),
               controller.image,
               CustomParicipantsContainer(
                 image: controller.imageList,
                 title: controller.nameList,
                 isButtonRequired: true,
-                buttonTitle: "Start Quiz",
+                buttonTitle: Strings.startQuiz,
                 onPressed: () {
-                  Get.to(
-                    isWithoutMinorDrinking || isAutoParticipantsDrinking
-                        ? const DrinkingQuestionQuizScreen()
-                        : QuizQuestionScreen(
-                            isSpinWheelParticipants: false,
-                            isSpining: isSpinWheel,
-                          ),
-                  );
+                  controller.goToNextScreen();
                 },
               ),
             ],
