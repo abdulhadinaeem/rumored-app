@@ -6,123 +6,124 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ProfileController>(
-        init: ProfileController(),
-        builder: (controller) {
-          return Scaffold(
-            backgroundColor: Colors.white,
-            body: ListView(
-              children: [
-                Stack(
-                  children: [
-                    Container(
-                      height: context.height * 0.2,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(30),
-                          bottomRight: Radius.circular(30),
-                        ),
-                        color: AppColors.primaryColor,
+      init: ProfileController(),
+      builder: (controller) {
+        return Scaffold(
+          backgroundColor: Colors.white,
+          body: ListView(
+            children: [
+              Stack(
+                children: [
+                  Container(
+                    height: context.height * 0.2,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(30),
+                        bottomRight: Radius.circular(30),
                       ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(15.0),
-                        child: Text(
-                          "User Profile",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                      color: AppColors.primaryColor,
                     ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 100),
-                      child: Center(
-                        child: CircleAvatar(
-                          backgroundColor: AppColors.primaryColor,
-                          backgroundImage: AppImages.profileImage,
-                          radius: 50,
+                    child: const Padding(
+                      padding: EdgeInsets.all(15.0),
+                      child: Text(
+                        Strings.userProfile,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white,
                         ),
                       ),
                     ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                const Text(
-                  "April John",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
-                  textAlign: TextAlign.center,
-                ),
-                const Text(
-                  "johndoe@gmail.coms",
-                  style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.black),
-                  textAlign: TextAlign.center,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            Get.to(
-                              () => const HistoryScreen(),
-                            );
-                          },
-                          icon: AppImages.profileHistoryImage,
-                        ),
-                        const Text(
-                          "History",
-                          style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black),
-                        ),
-                      ],
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 100),
+                    child: const Center(
+                      child: CircleAvatar(
+                        backgroundColor: AppColors.primaryColor,
+                        backgroundImage: AppImages.profileImage,
+                        radius: 50,
+                      ),
                     ),
-                    Column(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            Get.to(
-                              () => const AnalysisScreen(),
-                            );
-                          },
-                          icon: AppImages.profileAnalysisImage,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              const Text(
+                Strings.aprilJohn,
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black),
+                textAlign: TextAlign.center,
+              ),
+              const Text(
+                Strings.johnEmail,
+                style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black),
+                textAlign: TextAlign.center,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Get.to(
+                            () => const HistoryScreen(),
+                          );
+                        },
+                        icon: AppImages.profileHistoryImage,
+                      ),
+                      const Text(
+                        Strings.history,
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
                         ),
-                        const Text(
-                          "Analysis",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black,
-                          ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Get.to(
+                            () => const AnalysisScreen(),
+                          );
+                        },
+                        icon: AppImages.profileAnalysisImage,
+                      ),
+                      const Text(
+                        Strings.analysis,
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
                         ),
-                      ],
-                    ),
-                  ],
-                ),
-                for (int i = 0;
-                    i < controller.profileScreenListTileData.length;
-                    i++)
-                  profileListTile(
-                      controller.profileScreenListTileData[i].title ?? '',
-                      controller.profileScreenListTileData[i].listTileTitle ??
-                          '',
-                      controller.profileScreenListTileData[i].image ?? ''),
-              ],
-            ),
-          );
-        });
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              for (int i = 0;
+                  i < controller.profileScreenListTileData.length;
+                  i++)
+                profileListTile(
+                    controller.profileScreenListTileData[i].title ?? '',
+                    controller.profileScreenListTileData[i].listTileTitle ?? '',
+                    controller.profileScreenListTileData[i].image ?? ''),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 

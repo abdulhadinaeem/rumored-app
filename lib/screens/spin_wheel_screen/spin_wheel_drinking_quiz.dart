@@ -26,7 +26,7 @@ class SpinWheelDrinkingQuizScreen extends StatelessWidget {
                 ),
                 Center(
                   child: Text(
-                    "Answer the question",
+                    Strings.answerTheQues,
                     style: context.textTheme.displayLarge,
                   ),
                 ),
@@ -34,7 +34,7 @@ class SpinWheelDrinkingQuizScreen extends StatelessWidget {
                   height: 15,
                 ),
                 const Text(
-                  "01/20",
+                  Strings.oneOutOfTwenty,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
@@ -53,12 +53,13 @@ class SpinWheelDrinkingQuizScreen extends StatelessWidget {
                 ),
                 const Center(
                   child: Text(
-                    "Who is most likely to\n     kill someone?",
+                    Strings.questionOne,
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w400,
                       color: AppColors.textFiledColor,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -73,7 +74,7 @@ class SpinWheelDrinkingQuizScreen extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                   child: CustomButton(
-                    title: "Done",
+                    title: Strings.done,
                     onPressed: () {
                       Get.to(
                         DrinkingAutoResultScreen(

@@ -2,6 +2,12 @@ import 'package:rumo_red_app/core/constants/imports.dart';
 
 class AppImages {
   static SvgPicture logo = SvgPicture.asset("assets/images/logo11.svg");
+  static SvgPicture spinWheelScreenImg =
+      SvgPicture.asset("assets/images/s11.svg");
+  static SvgPicture drinkingParticipants =
+      SvgPicture.asset("assets/images/drink_participant.svg");
+  static SvgPicture noMinorScreenImg =
+      SvgPicture.asset("assets/images/no_minor.svg");
   static SvgPicture createButton =
       SvgPicture.asset('assets/images/create11.svg');
   static SvgPicture joinButton = SvgPicture.asset('assets/images/join11.svg');

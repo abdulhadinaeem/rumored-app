@@ -9,8 +9,8 @@ class BuySubscriptionController extends GetxController {
           return Padding(
             padding: const EdgeInsets.all(30.0),
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.height * 0.9,
+              width: context.width * 0.8,
+              height: context.height * 0.9,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
               ),

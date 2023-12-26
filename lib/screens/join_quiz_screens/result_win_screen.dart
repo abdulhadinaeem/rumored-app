@@ -48,7 +48,9 @@ class ResultWinScreen extends StatelessWidget {
                 height: context.height * 0.2,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 14),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                ),
                 child: CustomButton(
                   title: Strings.restart,
                   onPressed: () {

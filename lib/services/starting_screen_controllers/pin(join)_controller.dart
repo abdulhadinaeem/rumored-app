@@ -21,9 +21,7 @@ class PinJoinController extends GetxController {
   late String text;
   late Color color;
   void showText() {
-    text = isJoinScreen
-        ? "Enter PIN to join the quiz"
-        : "Share PIN with your friends";
+    text = isJoinScreen ? Strings.enterPinToJoin : Strings.sharePinWitFriends;
     update();
   }
 

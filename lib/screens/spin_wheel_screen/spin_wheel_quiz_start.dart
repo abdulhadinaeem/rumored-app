@@ -25,14 +25,14 @@ class SpinWheelQuizStartScreen extends StatelessWidget {
           backgroundColor: controller.color,
           body: Column(
             children: [
-              SizedBox(height: context.height * 0.1),
-              const Center(
+              SizedBox(
+                height: context.height * 0.1,
+              ),
+              Center(
                 child: Text(
-                  "Spin The Wheel!",
-                  style: TextStyle(
+                  Strings.spinTheWheel,
+                  style: context.textTheme.displayLarge?.copyWith(
                     fontSize: 25,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
                   ),
                 ),
               ),
@@ -49,7 +49,7 @@ class SpinWheelQuizStartScreen extends StatelessWidget {
                   );
                 },
                 child: const Text(
-                  "Exit Quiz",
+                  Strings.exitQuiz,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w400,

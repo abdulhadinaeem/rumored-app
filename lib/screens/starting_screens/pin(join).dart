@@ -86,7 +86,7 @@ class PinJoinScreen extends StatelessWidget {
                     height: 15,
                   ),
                   CustomButton(
-                    title: 'Next',
+                    title: Strings.next,
                     onPressed: () {
                       controller.goTonextScreens();
                     },

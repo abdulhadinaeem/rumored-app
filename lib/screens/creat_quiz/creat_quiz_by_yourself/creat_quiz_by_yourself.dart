@@ -29,8 +29,10 @@ class CreatQuizByYourselfScreen extends StatelessWidget {
                     borderRadius: const BorderRadius.all(
                       Radius.circular(26),
                     ),
-                    border:
-                        Border.all(width: 1, color: AppColors.textFiledColor),
+                    border: Border.all(
+                      width: 1,
+                      color: AppColors.textFiledColor,
+                    ),
                   ),
                   child: Center(
                     child: Text(
@@ -52,7 +54,7 @@ class CreatQuizByYourselfScreen extends StatelessWidget {
                   height: context.height * 0.1,
                 ),
                 CustomButton(
-                  title: "Continue",
+                  title: Strings.conTinue,
                   onPressed: () {
                     controller.goToNextScreen();
                   },

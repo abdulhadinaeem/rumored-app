@@ -36,7 +36,6 @@ class SpinWheelQuizStartController extends GetxController {
     super.onInit();
   }
 
-  double generateRandomAngle() => Random().nextDouble() * pi * 2;
   @override
   void dispose() {
     dividerController.close();

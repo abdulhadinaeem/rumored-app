@@ -11,8 +11,9 @@ class DrinkingAutoResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<DrinkingAutoResultController>(
       init: DrinkingAutoResultController(
-          isDrinkingGame: isDrinkingGame,
-          isAutoParticipantsDrinking: isAutoParticipantsDrinking),
+        isDrinkingGame: isDrinkingGame,
+        isAutoParticipantsDrinking: isAutoParticipantsDrinking,
+      ),
       builder: (controller) {
         return Scaffold(
           backgroundColor: AppColors.drinkingScreenBackgroundTheme,

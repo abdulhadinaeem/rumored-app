@@ -12,9 +12,10 @@ class AutoParticipantsWithoutMinor extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<AutoParticipantsWithoutMinorController>(
       init: AutoParticipantsWithoutMinorController(
-          isSpining: isSpinWheel,
-          isWithoutMinorDrinking: isWithoutMinorDrinking,
-          isAutoParticipantsDrinking: isAutoParticipantsDrinking),
+        isSpining: isSpinWheel,
+        isWithoutMinorDrinking: isWithoutMinorDrinking,
+        isAutoParticipantsDrinking: isAutoParticipantsDrinking,
+      ),
       builder: (controller) {
         return Scaffold(
           backgroundColor: controller.color,

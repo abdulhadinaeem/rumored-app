@@ -22,10 +22,16 @@ class GetReadyScreen extends StatelessWidget {
                   style: context.textTheme.displayLarge,
                   textAlign: TextAlign.center,
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
                 Text(
                   Strings.quizStartSoon,
                   style: context.textTheme.headlineLarge,
                   textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 AppImages.getReadyScreenImage,
                 const SizedBox(

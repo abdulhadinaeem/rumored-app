@@ -12,7 +12,9 @@ class HistoryScreen extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
-            title: const Text("History"),
+            title: const Text(
+              Strings.history,
+            ),
           ),
           body: ListView(
             children: [
@@ -35,7 +37,7 @@ class HistoryScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10, left: 20, right: 20),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.09,
+        height: context.height * 0.09,
         decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.rectangle,
@@ -53,17 +55,22 @@ class HistoryScreen extends StatelessWidget {
               radius: 16,
               backgroundImage: AppImages.profileImage,
             ),
-            title: const Text("Team quiz"),
-            subtitle: const Text("1 week"),
+            title: const Text(
+              Strings.teamQuiz,
+            ),
+            subtitle: const Text(
+              Strings.oneWeek,
+            ),
             trailing: TextButton(
               onPressed: () {},
               child: const Text(
-                "View Participants",
+                Strings.viewParticipants,
                 style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.profileScreenListTextColor,
-                    decoration: TextDecoration.underline),
+                  fontSize: 10,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.profileScreenListTextColor,
+                  decoration: TextDecoration.underline,
+                ),
               ),
             ),
           ),

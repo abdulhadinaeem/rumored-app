@@ -22,25 +22,20 @@ class AfterAdScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Align(
-                      alignment: Alignment.topRight,
-                      child: IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: const Icon(
-                          Icons.clear,
-                        ),
-                      )),
+                    alignment: Alignment.topRight,
+                    child: IconButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      icon: const Icon(
+                        Icons.clear,
+                      ),
+                    ),
+                  ),
                   screenHeading(context),
-                  customQuestionWidget(
-                    "Who is known as the 'God of Thunder' in the Marvel Universe?",
-                  ),
-                  customQuestionWidget(
-                    "Who is known as the 'God of Thunder' in the Marvel Universe?",
-                  ),
-                  customQuestionWidget(
-                    "Who is known as the 'God of Thunder' in the Marvel Universe?",
-                  ),
+                  for (int i = 0; i < controller.afterAdQuestion.length; i++)
+                    customQuestionWidget(
+                        controller.afterAdQuestion[i].question),
                   const SizedBox(
                     height: 15,
                   ),
@@ -61,21 +56,23 @@ class AfterAdScreen extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.1,
+          height: context.height * 0.1,
         ),
         Image.asset("assets/images/giftbox.png"),
         const SizedBox(
           height: 10,
         ),
-        const Text(
-          "Congratulations!\n",
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.w400, color: Colors.black),
+        Text(
+          Strings.congratulation,
+          style: context.textTheme.headlineLarge?.copyWith(
+            color: Colors.black,
+          ),
         ),
-        const Text(
-          "You got 10 free questions of\nMarvel Edition\n",
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.w400, color: Colors.black),
+        Text(
+          Strings.youGotTenFreeques,
+          style: context.textTheme.headlineLarge?.copyWith(
+            color: Colors.black,
+          ),
           textAlign: TextAlign.center,
         ),
       ],

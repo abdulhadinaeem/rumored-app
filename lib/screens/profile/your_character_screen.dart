@@ -1,4 +1,3 @@
-import 'package:page_view_dot_indicator/page_view_dot_indicator.dart';
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class YourCharacterScreen extends StatelessWidget {
@@ -12,7 +11,9 @@ class YourCharacterScreen extends StatelessWidget {
         return Scaffold(
           body: Column(
             children: [
-              SizedBox(height: context.height * 0.07),
+              SizedBox(
+                height: context.height * 0.07,
+              ),
               Row(
                 children: [
                   IconButton(
@@ -29,7 +30,7 @@ class YourCharacterScreen extends StatelessWidget {
                     width: 5,
                   ),
                   const Text(
-                    "Your Character",
+                    Strings.yourCharacter,
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w600,
@@ -52,10 +53,8 @@ class YourCharacterScreen extends StatelessWidget {
                       children: [
                         Text(
                           controller.characterList[index].title!,
-                          style: const TextStyle(
-                            fontSize: 16,
+                          style: context.textTheme.headlineLarge?.copyWith(
                             fontWeight: FontWeight.w600,
-                            color: Colors.white,
                           ),
                         ),
                         Padding(
@@ -119,7 +118,7 @@ class YourCharacterScreen extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                 child: CustomButton(
                   icon: true,
-                  title: "Share",
+                  title: Strings.share,
                   onPressed: () {},
                 ),
               ),

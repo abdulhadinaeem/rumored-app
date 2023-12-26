@@ -27,11 +27,12 @@ class AnalysisScreen extends StatelessWidget {
                     ),
                   ),
                   const Text(
-                    "Participants",
+                    Strings.participants,
                     style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white),
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
                   ),
                 ],
               ),
@@ -59,7 +60,7 @@ class AnalysisScreen extends StatelessWidget {
                       const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                          "Participants",
+                          Strings.participants,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
@@ -75,11 +76,14 @@ class AnalysisScreen extends StatelessWidget {
                         children: [
                           for (int i = 0; i <= 6; i++)
                             customContainer(
-                                controller.name[i], controller.image[i], () {
-                              Get.to(
-                                YourCharacterScreen(),
-                              );
-                            }),
+                              controller.name[i],
+                              controller.image[i],
+                              () {
+                                Get.to(
+                                  const YourCharacterScreen(),
+                                );
+                              },
+                            ),
                         ],
                       ),
                     ],
@@ -90,44 +94,27 @@ class AnalysisScreen extends StatelessWidget {
                 height: 15,
               ),
               const Text(
-                "Result Summary",
+                Strings.resultSummry,
                 style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white),
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
               ),
               const SizedBox(
                 height: 15,
               ),
-              CustomAnalysisIndicator(
-                name: "Veronica park",
-                title: "Travel Lover",
-                image: "assets/images/p-1.png",
-                percent: "90%",
-                percentage: 0.9,
-                progressColor: AppColors.secondaryColor,
-              ),
+              for (int i = 0; i < controller.analysisData.length; i++)
+                CustomAnalysisIndicator(
+                  name: controller.analysisData[i].name,
+                  title: controller.analysisData[i].title,
+                  image: controller.analysisData[i].image,
+                  percent: controller.analysisData[i].percent,
+                  percentage: controller.analysisData[i].percentage,
+                  progressColor: controller.analysisData[i].progressColor,
+                ),
               const SizedBox(
                 height: 10,
-              ),
-              CustomAnalysisIndicator(
-                name: "April John",
-                title: "Jealous One",
-                image: "assets/images/frame.png",
-                percent: "80%",
-                percentage: 0.8,
-                progressColor: AppColors.resultScreenbottonColor1,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              CustomAnalysisIndicator(
-                name: "Veronica park",
-                title: "Travel Lover",
-                image: "assets/images/p-1.png",
-                percent: "100%",
-                percentage: 1,
-                progressColor: AppColors.resultScreenbottonColor4,
               ),
             ],
           ),

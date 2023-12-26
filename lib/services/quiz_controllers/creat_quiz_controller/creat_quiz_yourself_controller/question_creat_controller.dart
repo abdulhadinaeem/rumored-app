@@ -1,16 +1,18 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class QuestionCreatController extends GetxController {
-  QuestionCreatController(
-      {required this.isSpining,
-      required this.isSpinDrinkingGame,
-      required this.isSpinWheelParticipants,
-      required this.isDrinkingGame});
+  QuestionCreatController({
+    required this.isSpining,
+    required this.isSpinDrinkingGame,
+    required this.isSpinWheelParticipants,
+    required this.isDrinkingGame,
+  });
   bool isSpining;
   bool isSpinDrinkingGame;
   bool isSpinWheelParticipants, isDrinkingGame;
   int curentStep = 1;
   late Color color;
+  late Color textFormColor;
   late SvgPicture image;
   late final int totalStep;
   late List creatQuizList;
@@ -33,11 +35,22 @@ class QuestionCreatController extends GetxController {
         : AppImages.questionmarkTextFieldImage;
   }
 
+  void textFormTextColor() {
+    textFormColor = isSpinDrinkingGame ? Colors.white : Colors.black;
+    update();
+  }
+
   void initializeQuiz() {
     creatQuizList = [
-      CreatQuizModel("Truth"),
-      CreatQuizModel("Challenge"),
-      CreatQuizModel("Secret"),
+      CreatQuizModel(
+        "Truth",
+      ),
+      CreatQuizModel(
+        "Challenge",
+      ),
+      CreatQuizModel(
+        "Secret",
+      ),
     ];
 
     totalStep = creatQuizList.length;
@@ -47,6 +60,7 @@ class QuestionCreatController extends GetxController {
   onInit() {
     initializeQuiz();
     backGroundColor();
+    textFormTextColor();
     showImage();
     super.onInit();
   }

@@ -2,6 +2,7 @@ export 'package:flutter/material.dart';
 export 'dart:math';
 export 'package:rumo_red_app/services/profile_controller/history_controller.dart';
 export 'package:rumo_red_app/core/constants/app_colors.dart';
+export 'package:page_view_dot_indicator/page_view_dot_indicator.dart';
 export 'package:rumo_red_app/screens/profile/your_character_screen.dart';
 export 'package:rumo_red_app/services/profile_controller/your_character_screen_controller.dart';
 export 'package:rumo_red_app/models.dart/custom_progress_indicator_model.dart';
@@ -26,7 +27,11 @@ export 'package:rumo_red_app/services/quiz_controllers/creat_quiz_controller/cre
 export 'package:rumo_red_app/services/quiz_controllers/creat_quiz_controller/creat_quiz_yourself_controller/create_quiz_paricipants_controller.dart';
 export 'package:rumo_red_app/screens/spin_wheel_screen/spin_wheel_drinking_quiz.dart';
 export 'package:rumo_red_app/services/quiz_controllers/creat_quiz_controller/creat_quiz_yourself_controller/create_quiz_get_ready_controller.dart';
-export 'package:rumo_red_app/services/drinking_game_controller/drinking_auto_pin_controller.dart';
+export 'package:rumo_red_app/models.dart/after_ad_question_model.dart';
+export 'package:rumo_red_app/models.dart/profile_model/character_screen_model.dart';
+export 'package:rumo_red_app/models.dart/profile_model/profile_data_model.dart';
+export 'package:rumo_red_app/models.dart/profile_model/analysis_data_model.dart';
+export 'package:rumo_red_app/screens/premium_editions/watch_ad/after_ad_screen.dart';
 export 'package:rumo_red_app/services/profile_controller/profile_controller.dart';
 export 'package:rumo_red_app/widgets/custom_progress_indicator.dart';
 export 'package:rumo_red_app/screens/login_signup/login_screen.dart';
@@ -56,7 +61,6 @@ export 'package:rumo_red_app/screens/premium_editions/buy_subscription/buy_subsc
 export 'package:rumo_red_app/screens/join_quiz_screens/quiz_question.dart';
 export 'package:rumo_red_app/mixins/validators.dart';
 export 'package:rumo_red_app/services/home_screen_controllers/home_screen_controller.dart';
-
 export 'package:rumo_red_app/screens/login_signup/signup_screen.dart';
 export 'package:rumo_red_app/screens/profile/history_screen.dart';
 export 'package:rumo_red_app/widgets/custom_textfield.dart';
@@ -74,22 +78,18 @@ export 'package:rumo_red_app/screens/profile/profile_screen.dart';
 export 'package:percent_indicator/percent_indicator.dart';
 export 'package:rumo_red_app/mixins/scaffold_gradient.dart';
 export 'package:rumo_red_app/screens/join_quiz_screens/result_screen.dart';
-
 export 'package:rumo_red_app/screens/starting_screens/splash_screen.dart';
 export 'package:rumo_red_app/screens/creat_quiz/editions/editions.dart';
 export 'package:rumo_red_app/services/edition_controller/pick_edition_controller.dart';
-
 export 'package:rumo_red_app/widgets/pick_editions_container.dart';
 export 'package:rumo_red_app/screens/creat_quiz/creat_quiz_by_yourself/creat_quiz_by_yourself.dart';
 export 'package:rumo_red_app/widgets/custom_question_button.dart';
 export 'package:rumo_red_app/screens/creat_quiz/creat_quiz_by_yourself/creat_quiz_yourself_2.dart';
 export 'package:rumo_red_app/screens/creat_quiz/creat_quiz_by_yourself/create_quiz_paricipants.dart';
 export 'package:rumo_red_app/screens/join_quiz_screens/get_ready.dart';
-
 export 'package:rumo_red_app/screens/creat_quiz/creat_quiz_by_yourself/question_creat.dart';
 export 'package:rumo_red_app/widgets/custom_paricipants_container.dart';
 export 'package:rumo_red_app/services/quiz_controllers/creat_quiz_controller/creat_quiz_yourself_controller/question_creat_controller.dart';
-
 export 'package:rumo_red_app/widgets/custom_linear_percent_indicator.dart';
 export 'package:rumo_red_app/models.dart/create_quiz_model.dart';
 export 'package:rumo_red_app/screens/creat_quiz/creat_quiz_by_yourself/creat-quiz_get_ready_screen.dart';

@@ -6,40 +6,41 @@ class OnBoardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<OnBoardScreenController>(
-        init: OnBoardScreenController(),
-        builder: (controller) {
-          return Scaffold(
-            backgroundColor: AppColors.primaryColor,
-            body: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.11,
-                      ),
-                      AppImages.logo,
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      buildMiddleText(),
-                    ],
-                  ),
-                  CustomButton(
-                    title: 'Continue',
-                    onPressed: () {
-                      Get.off(
-                        LoginScreen(),
-                      );
-                    },
-                  ),
-                ],
-              ),
+      init: OnBoardScreenController(),
+      builder: (controller) {
+        return Scaffold(
+          backgroundColor: AppColors.primaryColor,
+          body: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    SizedBox(
+                      height: context.height * 0.11,
+                    ),
+                    AppImages.logo,
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    buildMiddleText(),
+                  ],
+                ),
+                CustomButton(
+                  title: Strings.conTinue,
+                  onPressed: () {
+                    Get.off(
+                      LoginScreen(),
+                    );
+                  },
+                ),
+              ],
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 
   Widget buildMiddleText() {

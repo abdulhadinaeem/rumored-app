@@ -25,12 +25,13 @@ class CustomPaymentButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(bottom: 15),
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.95,
-          height: MediaQuery.of(context).size.width * 0.1,
+          width: context.width * 0.95,
+          height: context.width * 0.1,
           decoration: BoxDecoration(
             border: Border.all(
-                width: 1,
-                color: isSelected ? Colors.black : const Color(0XFFCAC5C5)),
+              width: 1,
+              color: isSelected ? Colors.black : const Color(0XFFCAC5C5),
+            ),
             borderRadius: BorderRadius.circular(30),
           ),
           child: isPaymentMethot

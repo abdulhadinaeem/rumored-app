@@ -43,4 +43,22 @@ class Strings {
   static const String startWithThreeDaysTrail =
       "Start with 3 days free trail upgrade or\ndowngrade anytime";
   static const String viewAll = "View All";
+  static const String congratulation = "Congratulations!\n";
+  static const String youGotTenFreeques =
+      "You got 10 free questions of\nMarvel Edition\n";
+  static const String participants = "Participants";
+  static const String resultSummry = "Result Summary";
+  static const String history = "History";
+  static const String teamQuiz = "Team quiz";
+  static const String oneWeek = "1 week";
+  static const String viewParticipants = "View Participants";
+  static const String userProfile = "User Profile";
+  static const String analysis = "Analysis";
+  static const String johnEmail = "johndoe@gmail.coms";
+  static const String aprilJohn = "April John";
+  static const String share = "Share";
+  static const String yourCharacter = "Your Character";
+  static const String spinTheWheel = "Spin The Wheel!";
+  static const String enterPinToJoin = "Enter PIN to join the quiz";
+  static const String sharePinWitFriends = "Share PIN with your friends";
 }

@@ -35,11 +35,9 @@ class CreatQuizGetReadyScreen extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              const Text(
+              Text(
                 Strings.quizStartSoon,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
+                style: context.textTheme.displaySmall?.copyWith(
                   color: Colors.white,
                 ),
               ),

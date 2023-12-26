@@ -30,10 +30,10 @@ class AutoParticipantsWithoutMinorController extends GetxController {
 
   showImage() {
     image = isSpining || isAutoParticipantsDrinking
-        ? SvgPicture.asset("assets/images/s11.svg")
+        ? AppImages.spinWheelScreenImg
         : isWithoutMinorDrinking
-            ? SvgPicture.asset("assets/images/drink_participant.svg")
-            : SvgPicture.asset("assets/images/no_minor.svg");
+            ? AppImages.drinkingParticipants
+            : AppImages.noMinorScreenImg;
     update();
   }
 

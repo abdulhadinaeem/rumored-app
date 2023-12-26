@@ -19,8 +19,10 @@ class DrinkingQuestionQuizScreen extends StatelessWidget with GradinetScaffold {
                   height: context.height * 0.1,
                 ),
                 Center(
-                  child: Text(Strings.answerTheQues,
-                      style: context.textTheme.displayLarge),
+                  child: Text(
+                    Strings.answerTheQues,
+                    style: context.textTheme.displayLarge,
+                  ),
                 ),
                 const SizedBox(
                   height: 15,

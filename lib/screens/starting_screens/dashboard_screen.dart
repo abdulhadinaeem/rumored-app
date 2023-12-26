@@ -6,17 +6,21 @@ class DashBoardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<DashboardController>(
-        init: DashboardController(),
-        builder: (controller) {
-          return Scaffold(
-            body: IndexedStack(
-              index: controller.tabIndex,
-              children: const [HomeScreen(), ProfileScreen()],
-            ),
-            bottomNavigationBar: BottomNavBar(
-              controller: controller,
-            ),
-          );
-        });
+      init: DashboardController(),
+      builder: (controller) {
+        return Scaffold(
+          body: IndexedStack(
+            index: controller.tabIndex,
+            children: const [
+              HomeScreen(),
+              ProfileScreen(),
+            ],
+          ),
+          bottomNavigationBar: BottomNavBar(
+            controller: controller,
+          ),
+        );
+      },
+    );
   }
 }
