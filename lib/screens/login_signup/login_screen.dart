@@ -1,7 +1,7 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
-class LoginScreen extends StatelessWidget with Validator {
-  LoginScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +13,11 @@ class LoginScreen extends StatelessWidget with Validator {
             FocusManager.instance.primaryFocus?.unfocus();
           },
           child: Scaffold(
-            body: Form(
-              key: controller.formkey,
+            body: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: SingleChildScrollView(
+                child: Form(
+                  key: controller.formkey,
                   child: Column(
                     children: [
                       SizedBox(
@@ -54,7 +54,13 @@ class LoginScreen extends StatelessWidget with Validator {
                       ),
                       CustomButton(
                         title: Strings.login,
-                        onPressed: () {},
+                        onPressed: () {
+                          if (controller.formkey.currentState!.validate()) {
+                            Get.to(
+                              () => const DashBoardScreen(),
+                            );
+                          }
+                        },
                       ),
                       const SizedBox(
                         height: 15,

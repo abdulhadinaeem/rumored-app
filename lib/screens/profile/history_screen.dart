@@ -10,10 +10,14 @@ class HistoryScreen extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           appBar: AppBar(
+            iconTheme: const IconThemeData(color: Colors.white, size: 25),
             backgroundColor: Colors.transparent,
             elevation: 0,
-            title: const Text(
+            title: Text(
               Strings.history,
+              style: context.textTheme.displayMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
           body: ListView(
@@ -21,10 +25,13 @@ class HistoryScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Column(
-                children: [
-                  for (int i = 0; i <= 9; i++) historyListtile(context),
-                ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    for (int i = 0; i <= 9; i++) historyListtile(context),
+                  ],
+                ),
               ),
             ],
           ),
@@ -35,7 +42,7 @@ class HistoryScreen extends StatelessWidget {
 
   Widget historyListtile(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10, left: 20, right: 20),
+      padding: const EdgeInsets.all(8.0),
       child: Container(
         height: context.height * 0.09,
         decoration: BoxDecoration(
@@ -49,7 +56,7 @@ class HistoryScreen extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
+          padding: const EdgeInsets.only(left: 12, right: 12),
           child: ListTile(
             leading: const CircleAvatar(
               radius: 16,

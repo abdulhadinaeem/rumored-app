@@ -36,17 +36,27 @@ class SpinWheelQuizStartScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: context.height * 0.15),
+              SizedBox(
+                height: context.height * 0.15,
+              ),
               CustomSpinWheel(
                 isDrinkingGame: isDrinkingGame,
                 isSpinWheelParticipants: isSpinWheelParticipants,
                 isAutoParticipantsDrinking: isAutoParticipantsDrinking,
               ),
+              SizedBox(
+                height: context.height * 0.1,
+              ),
               TextButton(
                 onPressed: () {
-                  Get.offAll(
-                    const DashBoardScreen(),
-                  );
+                  // Get.to(
+                  //   ResultWinScreen(
+                  //     isSpining: isSpining,
+                  //     isDrinkingGame: isDrinkingGame,
+                  //     isSpinWheelParticipants: isSpinWheelParticipants,
+                  //     isAutoParticipantsDrinking: isAutoParticipantsDrinking,
+                  //   ),
+                  // );
                 },
                 child: const Text(
                   Strings.exitQuiz,
@@ -55,6 +65,7 @@ class SpinWheelQuizStartScreen extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     color: Colors.white,
                     decoration: TextDecoration.underline,
+                    decorationColor: Colors.white,
                   ),
                 ),
               ),

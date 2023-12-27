@@ -1,4 +1,4 @@
-import '../core/constants/imports.dart';
+import '../../core/constants/imports.dart';
 
 class CustomParticipantsContainerList extends StatelessWidget {
   CustomParticipantsContainerList(

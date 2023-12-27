@@ -10,6 +10,10 @@ class EditionsScreen extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           appBar: AppBar(
+            iconTheme: const IconThemeData(
+              color: Colors.white,
+              size: 25,
+            ),
             backgroundColor: Colors.transparent,
             elevation: 0.0,
           ),

@@ -37,7 +37,7 @@ class Strings {
   static const String createAccout = "Create Your Account";
   static const String iAgree = "I agree with ";
   static const String termsAndCondition = "Terms & Conditions";
-  static const String alreadyHaveAccout = "Already have an account?";
+  static const String alreadyHaveAccout = "Already have an account? ";
   static const String choosePlan = "Choose Your Plan";
   static const String selectMethod = "Select a Method";
   static const String startWithThreeDaysTrail =
@@ -61,4 +61,7 @@ class Strings {
   static const String spinTheWheel = "Spin The Wheel!";
   static const String enterPinToJoin = "Enter PIN to join the quiz";
   static const String sharePinWitFriends = "Share PIN with your friends";
+  static const String truth = "Truth";
+  static const String challenge = "Challenge";
+  static const String secret = "Secret";
 }

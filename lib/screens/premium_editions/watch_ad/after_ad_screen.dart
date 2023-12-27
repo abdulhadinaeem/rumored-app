@@ -71,8 +71,7 @@ class AfterAdScreen extends StatelessWidget {
         Text(
           Strings.youGotTenFreeques,
           style: context.textTheme.headlineLarge?.copyWith(
-            color: Colors.black,
-          ),
+              color: AppColors.buySubscriptionSreenTextColor, fontSize: 13),
           textAlign: TextAlign.center,
         ),
       ],
@@ -87,14 +86,14 @@ class AfterAdScreen extends StatelessWidget {
           Text(
             question,
             style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w400,
-              color: Color(0XFF444444),
-            ),
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+                color: Color(0XFF444444)),
             textAlign: TextAlign.start,
           ),
           const Divider(
             thickness: 2,
+            color: Color(0XFFB6B6B6),
           ),
         ],
       ),

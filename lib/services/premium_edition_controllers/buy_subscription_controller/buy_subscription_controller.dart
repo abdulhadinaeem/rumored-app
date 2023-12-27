@@ -1,6 +1,7 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
 class BuySubscriptionController extends GetxController {
+  List<BuySubscriptionModel> paymentDataList = [];
   void onPressed(BuildContext context) {
     Get.to(
       showDialog(
@@ -22,5 +23,34 @@ class BuySubscriptionController extends GetxController {
         (value) => Get.back(),
       ),
     );
+  }
+
+  void customPaymentButtonData() {
+    paymentDataList = [
+      BuySubscriptionModel(
+        price: "Free",
+        text2: "Start with 3 days free trail",
+        isPaymentMethot: false,
+        value: 0,
+      ),
+      BuySubscriptionModel(
+          price: "\$.99", text2: "Each Week", isPaymentMethot: false, value: 1),
+      BuySubscriptionModel(
+          price: "\$3.99",
+          text2: "Each Month",
+          isPaymentMethot: false,
+          value: 2),
+      BuySubscriptionModel(
+          price: "\$24.99",
+          text2: "Per Year",
+          isPaymentMethot: false,
+          value: 3),
+    ];
+  }
+
+  @override
+  void onInit() {
+    customPaymentButtonData();
+    super.onInit();
   }
 }

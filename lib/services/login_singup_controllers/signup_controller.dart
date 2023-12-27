@@ -7,6 +7,7 @@ class SignUpController extends GetxController with Validator {
   TextEditingController contaryController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isTermandconditionChecked = false;
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
   void checkBoxValue(newValue) {
     isTermandconditionChecked = !isTermandconditionChecked;
     update();

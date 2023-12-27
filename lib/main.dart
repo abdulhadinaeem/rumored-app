@@ -2,7 +2,6 @@ import 'core/constants/imports.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
   SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.portraitUp,

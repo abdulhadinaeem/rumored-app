@@ -10,7 +10,7 @@ class QuestionCreatController extends GetxController {
   bool isSpining;
   bool isSpinDrinkingGame;
   bool isSpinWheelParticipants, isDrinkingGame;
-  int curentStep = 1;
+  int curentStep = 0;
   late Color color;
   late Color textFormColor;
   late SvgPicture image;
@@ -36,20 +36,22 @@ class QuestionCreatController extends GetxController {
   }
 
   void textFormTextColor() {
-    textFormColor = isSpinDrinkingGame ? Colors.white : Colors.black;
+    textFormColor = isSpinDrinkingGame || isSpinWheelParticipants
+        ? Colors.white
+        : Colors.black;
     update();
   }
 
   void initializeQuiz() {
     creatQuizList = [
       CreatQuizModel(
-        "Truth",
+        Strings.truth,
       ),
       CreatQuizModel(
-        "Challenge",
+        Strings.challenge,
       ),
       CreatQuizModel(
-        "Secret",
+        Strings.secret,
       ),
     ];
 
@@ -66,11 +68,11 @@ class QuestionCreatController extends GetxController {
   }
 
   backButtonController() {
-    if (curentStep == 1) {
+    if (curentStep == 0) {
       Get.back();
     } else {
       curentStep--;
-      textEditingController.text = creatQuizList[curentStep - 1].value;
+      textEditingController.text = creatQuizList[curentStep].value;
     }
     update();
   }
@@ -78,11 +80,14 @@ class QuestionCreatController extends GetxController {
   valueUpdate() {
     if (formkey.currentState!.validate()) {
       if (curentStep <= totalStep) {
-        creatQuizList[curentStep - 1].value = textEditingController.text;
+        print("value");
+        creatQuizList[curentStep].value = textEditingController.text;
+        curentStep++;
 
         clear();
 
         if (curentStep == totalStep) {
+          print("nextScreen");
           Get.to(
             CreatQuizGetReadyScreen(
               isSpiningScreen: isSpining,
@@ -93,8 +98,6 @@ class QuestionCreatController extends GetxController {
           );
           return;
         }
-        curentStep++;
-        update();
       }
     }
   }

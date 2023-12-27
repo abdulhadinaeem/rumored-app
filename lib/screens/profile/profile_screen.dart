@@ -80,14 +80,6 @@ class ProfileScreen extends StatelessWidget {
                         },
                         icon: AppImages.profileHistoryImage,
                       ),
-                      const Text(
-                        Strings.history,
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black,
-                        ),
-                      ),
                     ],
                   ),
                   Column(
@@ -99,14 +91,6 @@ class ProfileScreen extends StatelessWidget {
                           );
                         },
                         icon: AppImages.profileAnalysisImage,
-                      ),
-                      const Text(
-                        Strings.analysis,
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black,
-                        ),
                       ),
                     ],
                   ),

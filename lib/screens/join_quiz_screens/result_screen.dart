@@ -12,16 +12,19 @@ class ResultScreen extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
-                height: context.height * 0.1,
+              const SizedBox(
+                height: 15,
               ),
               Text(
                 Strings.youHaveToTake,
                 style: context.textTheme.displayLarge,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 15),
+              const SizedBox(
+                height: 15,
+              ),
               for (int i = 0; i < controller.resultScreenDataList.length; i++)
                 CustomProgressIndicator(
                   context: context,
@@ -31,24 +34,19 @@ class ResultScreen extends StatelessWidget {
                   percentage: controller.resultScreenDataList[i].percentage,
                   url: controller.resultScreenDataList[i].url,
                 ),
-              const SizedBox(height: 15),
               AppImages.resultScreenImage,
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                child: CustomButton(
-                  title: Strings.nextQuest,
-                  onPressed: () {
-                    Get.to(
-                      ResultWinScreen(
-                        isAutoParticipantsDrinking: false,
-                        isDrinkingGame: false,
-                        isSpining: false,
-                        isSpinWheelParticipants: false,
-                      ),
-                    );
-                  },
-                ),
+              CustomButton(
+                title: Strings.nextQuest,
+                onPressed: () {
+                  Get.to(
+                    ResultWinScreen(
+                      isAutoParticipantsDrinking: false,
+                      isDrinkingGame: false,
+                      isSpining: false,
+                      isSpinWheelParticipants: false,
+                    ),
+                  );
+                },
               ),
               TextButton(
                 onPressed: () {
@@ -59,6 +57,7 @@ class ResultScreen extends StatelessWidget {
                   style: context.textTheme.displaySmall?.copyWith(
                     color: Colors.white,
                     decoration: TextDecoration.underline,
+                    decorationColor: Colors.white,
                   ),
                 ),
               ),

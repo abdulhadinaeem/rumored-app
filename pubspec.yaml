@@ -45,6 +45,8 @@ dependencies:
   kbspinningwheel: ^1.0.3
   flutter_launcher_icons: ^0.13.1
   page_view_dot_indicator: ^2.3.0
+  smooth_page_indicator: ^1.1.0
+  video_player: ^2.8.1
   
  
 

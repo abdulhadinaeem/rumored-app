@@ -3,7 +3,7 @@ mixin Validator {
     if (value == null || value.isEmpty) {
       return 'Please enter password';
     }
-    if (value.length < 7) {
+    if (value.length < 8) {
       return 'At least 8 characters required';
     } else {
       return null;
@@ -40,6 +40,14 @@ mixin Validator {
   String? countaryValidator(value) {
     if (value == null || value.isEmpty) {
       return 'Please fill the required field';
+    } else {
+      return null;
+    }
+  }
+
+  String? pinJoinValidator(value) {
+    if (value.isEmpty && value.length < 4) {
+      return "Please fill the required field";
     } else {
       return null;
     }

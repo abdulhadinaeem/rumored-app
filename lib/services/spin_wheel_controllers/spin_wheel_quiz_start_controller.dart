@@ -23,15 +23,21 @@ class SpinWheelQuizStartController extends GetxController {
   @override
   void onInit() {
     backGroundColor();
-    Future.delayed(const Duration(seconds: 8), () {
-      Get.off(
-        ResultWinScreen(
+    Future.delayed(
+      const Duration(
+        seconds: 8,
+      ),
+      () {
+        Get.to(
+          ResultWinScreen(
             isSpining: isSpining,
             isDrinkingGame: isDrinkingGame,
             isSpinWheelParticipants: isSpinWheelParticipants,
-            isAutoParticipantsDrinking: isAutoParticipantsDrinking),
-      );
-    });
+            isAutoParticipantsDrinking: isAutoParticipantsDrinking,
+          ),
+        );
+      },
+    );
 
     super.onInit();
   }

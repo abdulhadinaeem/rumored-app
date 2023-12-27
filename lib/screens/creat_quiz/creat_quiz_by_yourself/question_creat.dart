@@ -26,7 +26,11 @@ class QuestionCreatScreen extends StatelessWidget {
             backgroundColor: controller.color,
             appBar: AppBar(
               leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                  size: 25,
+                ),
                 onPressed: () {
                   controller.backButtonController();
                 },
@@ -70,12 +74,13 @@ class QuestionCreatScreen extends StatelessWidget {
                             i < controller.creatQuizList.length;
                             i++)
                           buildSelectedIcons(
-                              context,
-                              Icons.circle_rounded,
-                              controller.creatQuizList[i].title,
-                              controller.curentStep >= i + 1
-                                  ? AppColors.secondaryColor
-                                  : Colors.white),
+                            context,
+                            Icons.circle_rounded,
+                            controller.creatQuizList[i].title,
+                            controller.curentStep >= i + 1
+                                ? AppColors.secondaryColor
+                                : Colors.white,
+                          ),
                       ],
                     ),
                     Form(
@@ -98,7 +103,7 @@ class QuestionCreatScreen extends StatelessWidget {
                               controller: controller.textEditingController,
                               decoration: InputDecoration(
                                 hintText:
-                                    "Enter ${controller.creatQuizList[controller.curentStep - 1].title}",
+                                    "Enter ${controller.creatQuizList[controller.curentStep].title}",
                                 hintStyle: TextStyle(
                                   color: controller.textFormColor,
                                 ),

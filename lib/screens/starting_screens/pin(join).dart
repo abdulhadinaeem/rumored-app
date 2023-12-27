@@ -1,6 +1,6 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
-class PinJoinScreen extends StatelessWidget {
+class PinJoinScreen extends StatelessWidget with Validator {
   PinJoinScreen(
       {super.key,
       required this.isJoinScreen,
@@ -40,58 +40,68 @@ class PinJoinScreen extends StatelessWidget {
             backgroundColor: controller.color,
             body: Padding(
               padding: const EdgeInsets.all(15.0),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: context.height * 0.07,
-                  ),
-                  Center(
-                    child: AppImages.pinJoinImage,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    controller.text,
-                    style: const TextStyle(
+              child: Form(
+                key: controller.formkey,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: context.height * 0.07,
+                    ),
+                    Center(
+                      child: AppImages.pinJoinImage,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      controller.text,
+                      style: const TextStyle(
                         color: AppColors.textFiledColor,
                         fontSize: 16,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  PinCodeTextField(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    appContext: context,
-                    length: 4,
-                    cursorColor: AppColors.textFiledIconColor,
-                    animationCurve: Curves.fastLinearToSlowEaseIn,
-                    enableActiveFill: true,
-                    autoFocus: true,
-                    keyboardType: TextInputType.number,
-                    pinTheme: PinTheme(
-                        inactiveColor: Colors.white,
-                        activeFillColor: AppColors.textFiledColor,
-                        inactiveFillColor: Colors.transparent,
-                        selectedFillColor: AppColors.textFiledColor,
-                        fieldHeight: 55,
-                        fieldWidth: 55,
-                        selectedColor: AppColors.textFiledColor,
-                        shape: PinCodeFieldShape.box,
-                        activeColor: Colors.transparent,
-                        borderRadius: BorderRadius.circular(5)),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  CustomButton(
-                    title: Strings.next,
-                    onPressed: () {
-                      controller.goTonextScreens();
-                    },
-                  ),
-                ],
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    PinCodeTextField(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      appContext: context,
+                      controller: controller.pincontroller,
+                      length: 4,
+                      validator: isJoinScreen ? pinJoinValidator : null,
+                      cursorColor: AppColors.textFiledIconColor,
+                      animationCurve: Curves.fastLinearToSlowEaseIn,
+                      enableActiveFill: true,
+                      readOnly: controller.readonly,
+                      autoFocus: true,
+                      keyboardType: TextInputType.number,
+                      showCursor: isJoinScreen ? true : false,
+                      pinTheme: PinTheme(
+                          inactiveColor: Colors.white,
+                          activeFillColor: AppColors.textFiledColor,
+                          inactiveFillColor: Colors.transparent,
+                          selectedFillColor: AppColors.textFiledColor,
+                          fieldHeight: 55,
+                          fieldWidth: 55,
+                          selectedColor: AppColors.textFiledColor,
+                          shape: PinCodeFieldShape.box,
+                          activeColor: Colors.transparent,
+                          borderRadius: BorderRadius.circular(5)),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    CustomButton(
+                      title: Strings.next,
+                      onPressed: () {
+                        if (controller.formkey.currentState!.validate()) {
+                          controller.goTonextScreens();
+                        }
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

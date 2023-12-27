@@ -1,4 +1,5 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class YourCharacterScreen extends StatelessWidget {
   const YourCharacterScreen({super.key});
@@ -92,22 +93,18 @@ class YourCharacterScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: PageViewDotIndicator(
-                            boxShape: BoxShape.rectangle,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(
-                                10,
-                              ),
-                            ),
-                            size: const Size(50, 15),
-                            currentItem: index,
-                            count: controller.characterList.length,
-                            unselectedColor: Colors.grey,
-                            selectedColor: Colors.white,
-                          ),
+                        const SizedBox(
+                          height: 9,
                         ),
+                        SmoothPageIndicator(
+                          controller: controller.pageController,
+                          count: 3,
+                          effect: ExpandingDotsEffect(
+                            dotColor: Colors.grey.shade400,
+                            activeDotColor: Colors.white,
+                            dotWidth: 20,
+                          ),
+                        )
                       ],
                     );
                   },

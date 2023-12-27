@@ -11,28 +11,36 @@ class CustomSpinWheel extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<SpinWheelQuizStartController>(
       init: SpinWheelQuizStartController(
-          isDrinkingGame: isDrinkingGame,
-          isSpinWheelParticipants: isSpinWheelParticipants,
-          isSpining: false,
-          isAutoParticipantsDrinking: isAutoParticipantsDrinking),
+        isDrinkingGame: isDrinkingGame,
+        isSpinWheelParticipants: isSpinWheelParticipants,
+        isSpining: false,
+        isAutoParticipantsDrinking: isAutoParticipantsDrinking,
+      ),
       builder: (controller) {
         return Column(
           children: [
             SpinningWheel(
-              image: Image.asset("assets/images/wheell.png"),
-              width: 350,
-              height: 350,
+              image: AppImages.spinWheel,
+              width: 300,
+              height: 300,
               dividers: 12,
               onUpdate: controller.dividerController.add,
-              initialSpinAngle: 0.1,
-              spinResistance: 0.3,
+              initialSpinAngle: 0.0,
+              spinResistance: 0.14,
+              canInteractWhileSpinning: false,
               onEnd: controller.dividerController.add,
-              secondaryImage: Image.asset("assets/images/shadow11.png"),
-              secondaryImageTop: 190,
-              secondaryImageHeight: 220,
-              secondaryImageWidth: 230,
+              // secondaryImage: AppImages.spinWheelShadow,
+              // secondaryImageHeight: 280,
+              // secondaryImageWidth: 300,
+              // secondaryImageTop: 165,
             ),
-            const SizedBox(height: 2),
+
+            Container(
+              height: context.height * 0.08,
+              // width: context.width * 0.9,
+              child: AppImages.spinWheelShadow,
+            ),
+
             // StreamBuilder(
             //   stream: controller.dividerController.stream,
             //   builder: (context, snapshot) =>

@@ -5,7 +5,7 @@ class LoginController extends GetxController with Validator {
 
   final TextEditingController passwordControlletr = TextEditingController();
 
-  final GlobalKey formkey = GlobalKey();
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
   late List<CustomTextFieldModel> loginTextFieldDataList;
 
   void loginData() {

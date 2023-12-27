@@ -5,15 +5,15 @@ class DashBoardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DashboardController>(
-      init: DashboardController(),
+    return GetBuilder<BottomNavBarController>(
+      init: BottomNavBarController(),
       builder: (controller) {
         return Scaffold(
           body: IndexedStack(
             index: controller.tabIndex,
             children: const [
-              HomeScreen(),
               ProfileScreen(),
+              HomeScreen(),
             ],
           ),
           bottomNavigationBar: BottomNavBar(

@@ -30,7 +30,7 @@ class GetReadyScreen extends StatelessWidget {
                   style: context.textTheme.headlineLarge,
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 AppImages.getReadyScreenImage,
