@@ -5,9 +5,12 @@ mixin GradinetScaffold {
     Scaffold scaffold,
   ) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0XFF2B9689), Color(0XFF2B5696)],
+          colors: [
+            Color(0XFF2B9689),
+            Color(0XFF2B5696),
+          ],
         ),
       ),
       child: scaffold,
@@ -18,9 +21,12 @@ mixin GradinetScaffold {
     Scaffold scaffold,
   ) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0XFF873AAB), Color(0XFF3A46AB)],
+          colors: [
+            Color(0XFF873AAB),
+            Color(0XFF3A46AB),
+          ],
         ),
       ),
       child: scaffold,

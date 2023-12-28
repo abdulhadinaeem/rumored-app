@@ -1,6 +1,6 @@
 import 'package:rumo_red_app/core/constants/imports.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatelessWidget with Validator {
   const SignUpScreen({super.key});
 
   @override
@@ -13,93 +13,123 @@ class SignUpScreen extends StatelessWidget {
             FocusManager.instance.primaryFocus?.unfocus();
           },
           child: Scaffold(
-            body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Form(
-                  key: controller.formkey,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: context.height * 0.1,
+            resizeToAvoidBottomInset: false,
+            body: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Form(
+                key: controller.formkey,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: context.height * 0.1,
+                    ),
+                    Center(
+                      child: Text(
+                        Strings.createAccout,
+                        style: context.textTheme.displayLarge,
                       ),
-                      Center(
-                        child: Text(
-                          Strings.createAccout,
-                          style: context.textTheme.displayLarge,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    CustomTextField(
+                      hintText: 'Name',
+                      keyboardType: TextInputType.name,
+                      controller: controller.userNameController,
+                      validator: userNameValidator,
+                    ),
+                    CustomTextField(
+                      hintText: 'Email',
+                      keyboardType: TextInputType.emailAddress,
+                      controller: controller.emailController,
+                      validator: emailValidator,
+                    ),
+                    CustomTextField(
+                      hintText: 'Mobile Number',
+                      controller: controller.phoneNumberController,
+                      keyboardType: TextInputType.phone,
+                      validator: phoneNumberValidator,
+                    ),
+                    CustomTextField(
+                      hintText: 'Country',
+                      controller: controller.contaryController,
+                      validator: countaryValidator,
+                    ),
+                    CustomTextField(
+                      hintText: 'Password',
+                      controller: controller.passwordController,
+                      validator: passWordValidator,
+                      obscureText: controller.isPasswordVisible,
+                      suffixIcon: IconButton(
+                        onPressed: controller.isShowPassword,
+                        icon: controller.isPasswordVisible
+                            ? const Icon(
+                                Icons.visibility_off,
+                                color: AppColors.textFiledHintTextColor,
+                              )
+                            : const Icon(
+                                Icons.visibility,
+                                color: AppColors.textFiledHintTextColor,
+                              ),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: controller.isTermandconditionChecked,
+                          onChanged: controller.checkBoxValue,
+                          checkColor: Colors.black,
+                          fillColor: MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> state) {
+                              return Colors.white;
+                            },
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      for (int i = 0;
-                          i < controller.signUpTextFieldDataList.length;
-                          i++)
-                        CustomTextField(
-                          hintText:
-                              controller.signUpTextFieldDataList[i].hintText,
-                          controller:
-                              controller.signUpTextFieldDataList[i].controller,
-                          validator:
-                              controller.signUpTextFieldDataList[i].validator,
+                        Text(
+                          Strings.iAgree,
+                          style: context.textTheme.displaySmall?.copyWith(
+                            color: Colors.white,
+                          ),
                         ),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Checkbox(
-                            value: controller.isTermandconditionChecked,
-                            onChanged: controller.checkBoxValue,
-                            checkColor: Colors.black,
-                            fillColor: MaterialStateProperty.resolveWith<Color>(
-                              (Set<MaterialState> state) {
-                                return Colors.white;
-                              },
+                        InkWell(
+                          onTap: () {},
+                          child: Text(
+                            Strings.termsAndCondition,
+                            style: context.textTheme.displaySmall?.copyWith(
+                              color: AppColors.loginScreenBoldTextColor,
                             ),
                           ),
-                          const Text(
-                            Strings.iAgree,
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              Strings.termsAndCondition,
-                              style: TextStyle(color: AppColors.secondaryColor),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      CustomButton(
-                          title: Strings.signUp,
-                          onPressed: () {
-                            if (controller.formkey.currentState!.validate()) {
-                              Get.to(
-                                const DashBoardScreen(),
-                              );
-                            }
-                          }),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      TextButton(
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    CustomButton(
+                        title: Strings.signUp,
                         onPressed: () {
-                          Get.to(
-                            LoginScreen(),
-                          );
-                        },
-                        child: signUpBottomText(
-                          context,
-                          Strings.alreadyHaveAccout,
-                          Strings.login,
-                        ),
+                          if (controller.formkey.currentState!.validate()) {
+                            Get.to(
+                              const DashBoardScreen(),
+                            );
+                          }
+                        }),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Get.off(
+                          const LoginScreen(),
+                        );
+                      },
+                      child: signUpBottomText(
+                        context,
+                        Strings.alreadyHaveAccout,
+                        Strings.login,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

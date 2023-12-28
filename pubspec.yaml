@@ -47,6 +47,8 @@ dependencies:
   page_view_dot_indicator: ^2.3.0
   smooth_page_indicator: ^1.1.0
   video_player: ^2.8.1
+  country_picker: ^2.0.23
+  csc_picker: ^0.2.7
   
  
 

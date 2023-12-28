@@ -7,7 +7,6 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       elevation: 0,
-      type: BottomNavigationBarType.fixed,
       selectedItemColor:
           controller.tabIndex == 1 ? AppColors.secondaryColor : Colors.white,
       unselectedItemColor: controller.tabIndex == 1

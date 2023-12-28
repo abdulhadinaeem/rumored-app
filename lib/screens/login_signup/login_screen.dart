@@ -13,76 +13,86 @@ class LoginScreen extends StatelessWidget {
             FocusManager.instance.primaryFocus?.unfocus();
           },
           child: Scaffold(
-            body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Form(
-                  key: controller.formkey,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: context.height * 0.10,
+            resizeToAvoidBottomInset: false,
+            body: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Form(
+                key: controller.formkey,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: context.height * 0.10,
+                    ),
+                    AppImages.logo,
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      Strings.loginToYourAccount,
+                      style: context.textTheme.displayLarge,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    for (int i = 0;
+                        i < controller.loginTextFieldDataList.length;
+                        i++)
+                      CustomTextField(
+                        hintText: controller.loginTextFieldDataList[i].hintText,
+                        controller:
+                            controller.loginTextFieldDataList[i].controller,
+                        validator:
+                            controller.loginTextFieldDataList[i].validator,
+                        obscureText:
+                            i == 1 ? controller.passWordVisible : false,
+                        suffixIcon: i == 1
+                            ? IconButton(
+                                onPressed: controller.iconUpdate,
+                                icon: controller.passWordVisible
+                                    ? const Icon(
+                                        Icons.visibility_off,
+                                        color: AppColors.textFiledHintTextColor,
+                                      )
+                                    : const Icon(
+                                        Icons.visibility,
+                                        color: AppColors.textFiledHintTextColor,
+                                      ),
+                              )
+                            : const SizedBox(),
                       ),
-                      AppImages.logo,
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        Strings.loginToYourAccount,
-                        style: context.textTheme.displayLarge,
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      for (int i = 0;
-                          i < controller.loginTextFieldDataList.length;
-                          i++)
-                        CustomTextField(
-                          hintText:
-                              controller.loginTextFieldDataList[i].hintText,
-                          controller:
-                              controller.loginTextFieldDataList[i].controller,
-                          validator:
-                              controller.loginTextFieldDataList[i].validator,
-                          obscureText:
-                              controller.loginTextFieldDataList[i].obscureText,
-                          suffixIcon:
-                              controller.loginTextFieldDataList[i].suffixIcon,
-                        ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      CustomButton(
-                        title: Strings.login,
-                        onPressed: () {
-                          if (controller.formkey.currentState!.validate()) {
-                            Get.to(
-                              () => const DashBoardScreen(),
-                            );
-                          }
-                        },
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      bottomText(
-                        context,
-                        Strings.forgetUserAndPass,
-                        '',
-                        () {},
-                      ),
-                      bottomText(
-                        context,
-                        Strings.dontHaveAnAccount,
-                        Strings.signUp,
-                        () {
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    CustomButton(
+                      title: Strings.login,
+                      onPressed: () {
+                        if (controller.formkey.currentState!.validate()) {
                           Get.to(
-                            SignUpScreen(),
+                            () => const DashBoardScreen(),
                           );
-                        },
-                      ),
-                    ],
-                  ),
+                        }
+                      },
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    bottomText(
+                      context,
+                      Strings.forgetUserAndPass,
+                      '',
+                      () {},
+                    ),
+                    bottomText(
+                      context,
+                      Strings.dontHaveAnAccount,
+                      Strings.signUp,
+                      () {
+                        Get.off(
+                          const SignUpScreen(),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),

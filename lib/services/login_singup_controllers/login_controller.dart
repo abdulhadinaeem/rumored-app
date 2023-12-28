@@ -7,6 +7,11 @@ class LoginController extends GetxController with Validator {
 
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   late List<CustomTextFieldModel> loginTextFieldDataList;
+  late bool passWordVisible;
+  iconUpdate() {
+    passWordVisible = !passWordVisible;
+    update();
+  }
 
   void loginData() {
     loginTextFieldDataList = [
@@ -19,14 +24,14 @@ class LoginController extends GetxController with Validator {
         hintText: 'Password',
         controller: passwordControlletr,
         validator: passWordValidator,
-        obscureText: true,
-        suffixIcon: const Icon(Icons.visibility_off),
-      )
+        obscureText: passWordVisible,
+      ),
     ];
   }
 
   @override
   onInit() {
+    passWordVisible = true;
     loginData();
     update();
     super.onInit();
@@ -37,10 +42,12 @@ class CustomTextFieldModel {
   bool? obscureText = false;
   String hintText;
   Widget? suffixIcon;
+  TextInputType? keyBoardType;
   TextEditingController controller;
   String? Function(String?) validator;
   CustomTextFieldModel(
       {required this.controller,
+      this.keyBoardType,
       required this.hintText,
       this.obscureText,
       this.suffixIcon,
